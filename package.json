@@ -1,0 +1,17 @@
+{
+  "name": "vanla-landing",
+  "version": "1.0.0",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Ilya Minkin",
+  "license": "ISC",
+  "description": "",
+  "devDependencies": {
+    "swiper": "^8.4.5"
+  },
+  "dependencies": {
+    "fullpage": "^1.5.1"
+  }
+}

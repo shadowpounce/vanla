@@ -1,0 +1,203 @@
+@keyframes rotateText {
+  0% {
+    transform: rotate(360deg);
+  }
+  100% {
+    transform: rotate(0deg);
+  }
+}
+
+/* section 1 */
+
+@keyframes toStatic {
+  to {
+    transform: none;
+    opacity: 1;
+  }
+}
+
+@keyframes opacity {
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes capsule {
+  to {
+    opacity: 1;
+    transform: rotate(-16deg) translate(0, -50%);
+  }
+}
+
+@keyframes fadeOutDown {
+  to {
+    transform: translate(0, 50px);
+    opacity: 0;
+  }
+}
+
+@keyframes ticker {
+  to {
+    transform: translate3d(-3000px, 0, 0);
+  }
+}
+
+@keyframes circleWave1 {
+  50% {
+    stroke-opacity: 0;
+  }
+
+  100% {
+    stroke-opacity: 1;
+  }
+}
+
+@keyframes circleWave2 {
+  50% {
+    stroke-opacity: 0;
+  }
+
+  100% {
+    stroke-opacity: 0.5;
+  }
+}
+
+@keyframes circleWave3 {
+  50% {
+    stroke-opacity: 0;
+  }
+
+  100% {
+    stroke-opacity: 0.2;
+  }
+}
+
+@keyframes stroke {
+  to {
+    stroke-opacity: 1;
+    stroke-dasharray: 250;
+  }
+}
+
+@keyframes capsuleLines {
+  to {
+    stroke-dashoffset: 0;
+  }
+}
+
+@keyframes capsuleLinesOut {
+  to {
+    stroke-dashoffset: 1000;
+  }
+}
+
+@keyframes fadeOutVideo {
+  to {
+    opacity: 0;
+    top: 120%;
+  }
+}
+
+@keyframes capsuleFadeOut {
+  to {
+    top: 0;
+    opacity: 0;
+  }
+}
+
+@keyframes capsuleFadeIn {
+  to {
+    transform: translate(-50%, -50%) rotate(7deg) scale(1);
+    opacity: 1;
+  }
+}
+
+@keyframes capsuleToDown {
+  50% {
+    top: 65%;
+    transform: translate(-50%, -50%) rotate(14deg) scale(1);
+  }
+
+  100% {
+    top: 65%;
+    transform: translate(-50%, -50%) rotate(-14deg) scale(1.2);
+  }
+}
+
+@keyframes capsuleToUp {
+  50% {
+    top: 50%;
+    transform: translate(-50%, -50%) rotate(-7deg) scale(1.2);
+  }
+
+  100% {
+    top: 50%;
+    transform: translate(-50%, -50%) rotate(7deg) scale(1);
+  }
+}
+
+@keyframes waveBottom {
+  to {
+    bottom: -25px;
+    opacity: 1;
+  }
+}
+
+@keyframes capsuleHeadOpen {
+  to {
+    transform: rotate(-90deg) translate(0, -50px);
+  }
+}
+
+@keyframes capsuleHeadClose {
+  to {
+    transform: rotate(0deg) translate(0);
+  }
+}
+
+@keyframes swimmingLeaf {
+  25% {
+    transform: translate(5px, 6px) rotate(6deg);
+  }
+
+  50% {
+    transform: translate(5px, 12px) rotate(4deg);
+  }
+
+  75% {
+    transform: translate(0px, 6px) rotate(-1deg);
+  }
+
+  100% {
+    transform: translate(0) rotate(0deg);
+  }
+}
+
+@keyframes piecesOut {
+  50% {
+    top: -110px;
+    opacity: 1;
+  }
+
+  100% {
+    transform: scale(1);
+    top: -110px;
+    opacity: 1;
+  }
+}
+
+@keyframes piecesIn {
+  100% {
+    transform: scale(0.3);
+    top: 60px;
+    left: 0;
+    opacity: 0;
+  }
+}
+
+@keyframes middleFadeIn {
+  to {
+    opacity: 1;
+    transform: translate(-50%, -50%) scale(1);
+  }
+}

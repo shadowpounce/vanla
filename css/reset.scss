@@ -1,0 +1,36 @@
+*,
+*::before,
+*::after {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'TT Firs Neue';
+}
+
+ul {
+  list-style: none;
+}
+
+li {
+  cursor: pointer;
+}
+
+img {
+  cursor: pointer;
+}
+
+a {
+  text-decoration: none;
+}
+
+button {
+  font-family: 'TT Firs Neue';
+  font-weight: 700;
+  border-radius: 33px;
+  border: none;
+  background: transparent;
+  cursor: pointer;
+}
