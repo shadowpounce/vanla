@@ -157,19 +157,98 @@
 
 @keyframes swimmingLeaf {
   25% {
-    transform: translate(5px, 6px) rotate(6deg);
+    transform: translate(0, -10px) rotate(5deg);
   }
 
   50% {
-    transform: translate(5px, 12px) rotate(4deg);
+    transform: translate(0, -15px) rotate(10deg);
   }
 
   75% {
-    transform: translate(0px, 6px) rotate(-1deg);
+    transform: translate(0, -10px) rotate(5deg);
   }
 
   100% {
     transform: translate(0) rotate(0deg);
+  }
+}
+
+@keyframes slD {
+  25% {
+    transform: translate(0, -10px) rotate(5deg) scale(0.5);
+  }
+
+  50% {
+    transform: translate(0, -15px) rotate(10deg) scale(0.5);
+  }
+
+  75% {
+    transform: translate(0, -10px) rotate(5deg) scale(0.5);
+  }
+
+  100% {
+    transform: translate(0) rotate(0deg) scale(0.5);
+  }
+}
+
+@keyframes sl3 {
+  25% {
+    transform: translate(0, -10px) rotate(5deg) scale(0.3);
+  }
+
+  50% {
+    transform: translate(0, -15px) rotate(10deg) scale(0.3);
+  }
+
+  75% {
+    transform: translate(0, -10px) rotate(5deg) scale(0.3);
+  }
+
+  100% {
+    transform: translate(0) rotate(0deg) scale(0.3);
+  }
+}
+
+@keyframes sl6 {
+  25% {
+    transform: translate(0, -10px) rotate(5deg) scale(0.6);
+  }
+
+  50% {
+    transform: translate(0, -15px) rotate(10deg) scale(0.6);
+  }
+
+  75% {
+    transform: translate(0, -10px) rotate(5deg) scale(0.6);
+  }
+
+  100% {
+    transform: translate(0) rotate(0deg) scale(0.6);
+  }
+}
+
+@keyframes sl8 {
+  25% {
+    transform: translate(0, -10px) rotate(5deg) scale(0.8);
+  }
+
+  50% {
+    transform: translate(0, -15px) rotate(10deg) scale(0.8);
+  }
+
+  75% {
+    transform: translate(0, -10px) rotate(5deg) scale(0.8);
+  }
+
+  100% {
+    transform: translate(0) rotate(0deg) scale(0.8);
+  }
+}
+
+@keyframes videoPieces {
+  to {
+    margin-left: 40px;
+    opacity: 1;
   }
 }
 
@@ -199,5 +278,15 @@
   to {
     opacity: 1;
     transform: translate(-50%, -50%) scale(1);
+  }
+}
+
+@keyframes rotating {
+  0% {
+    transform: translate(-50%, 0);
+  }
+
+  100% {
+    transform: translate(-50%, 0) rotate(360deg);
   }
 }

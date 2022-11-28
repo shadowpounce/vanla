@@ -5,6 +5,53 @@ const capsule = document.querySelector('.main-capsule')
 const capsuleHead = capsule.querySelector('.head')
 const capsulePieces = capsule.querySelector('.pieces')
 const capsuleLines = capsule.querySelector('.capsuleLines path')
+const middleWrapper = document.querySelector('.middle-wrapper')
+const pieces = middleWrapper.querySelectorAll('.piece')
+
+setTimeout(() => {
+  capsule.className = `main-capsule init`
+}, 100)
+
+middleWrapper.addEventListener('mouseout', () => {
+  pieces.forEach((piece) => (piece.style.marginLeft = 0))
+})
+
+middleWrapper.addEventListener('mousemove', (e) => {
+  if (e.target.closest('.part.left')) {
+    pieces.forEach((piece) => {
+      piece.style.marginLeft = '40px'
+    })
+  }
+  if (e.target.closest('.part.right')) {
+    pieces.forEach((piece) => {
+      piece.style.marginLeft = '-40px'
+    })
+  }
+})
+
+const slider = document.querySelector('.slider-wrapper')
+const sliderItems = document.querySelector('.slider-items')
+const btnPrev = document.querySelector('.slider-btn.left')
+const btnNext = document.querySelector('.slider-btn.right')
+let currentSlide = 3
+
+btnNext.addEventListener('click', () => {
+  if (currentSlide !== 5) {
+    currentSlide++
+    slide(currentSlide)
+  }
+})
+
+btnPrev.addEventListener('click', () => {
+  if (currentSlide !== 1) {
+    currentSlide--
+    slide(currentSlide)
+  }
+})
+
+function slide(id) {
+  sliderItems.className = `slider-items slide-${id}`
+}
 
 const swiper = new Swiper('.carousel-section', {
   // Optional parameters
@@ -59,6 +106,17 @@ new fullpage('#fullpage', {
     if (origin.index === 3) {
       if (direction === 'down') {
         video.className = `middle-video`
+        document.querySelectorAll('video').forEach((video) => video.play())
+      }
+    }
+    if (origin.index === 4) {
+      if (direction === 'up') {
+        video.className = `middle-video inBig`
+      }
+    }
+    if (origin.index === 5) {
+      if (direction === 'up') {
+        document.querySelectorAll('video').forEach((video) => video.play())
       }
     }
   },
