@@ -7,6 +7,10 @@ const capsulePieces = capsule.querySelector('.pieces')
 const capsuleLines = capsule.querySelector('.capsuleLines path')
 const middleWrapper = document.querySelector('.middle-wrapper')
 const pieces = middleWrapper.querySelectorAll('.piece')
+const videoCarousel = document.querySelector(`.carousel`)
+let canSlideDown = false
+let canSlideTop = false
+let currentVideoSlide = 0
 
 setTimeout(() => {
   capsule.className = `main-capsule init`
@@ -60,6 +64,21 @@ const swiper = new Swiper('.carousel-section', {
   scrollbar: false,
   speed: 700,
   spaceBetween: 30,
+  mousewheel: true,
+})
+
+videoCarousel.addEventListener('wheel', (e) => {
+  let slide = e.target
+    .closest('#section-5')
+    .querySelector('.swiper-slide-active')
+  if (slide.ariaLabel === `1 / 4`) {
+    canSlideTop = true
+  } else {
+    canSlideTop = false
+  }
+  if (slide.ariaLabel === `4 / 4`) {
+    swiper.mousewheel.disable()
+  }
 })
 
 new fullpage('#fullpage', {
@@ -67,6 +86,7 @@ new fullpage('#fullpage', {
   scrollingSpeed: 700,
   fitToSectionDelay: 100,
   lazyLoading: false,
+
   onLeave: function (origin, destination, direction, trigger) {
     if (origin.index == 0 && direction == 'down') {
       capsule.className = `main-capsule toDown`
@@ -104,6 +124,7 @@ new fullpage('#fullpage', {
       }
     }
     if (origin.index === 3) {
+      console.log(swiper.mousewheel.enabled)
       if (direction === 'down') {
         video.className = `middle-video`
         document.querySelectorAll('video').forEach((video) => video.play())
@@ -111,11 +132,16 @@ new fullpage('#fullpage', {
     }
     if (origin.index === 4) {
       if (direction === 'up') {
-        video.className = `middle-video inBig`
+        if (canSlideTop) {
+          video.className = `middle-video inBig`
+        } else if (!canSlideTop) {
+          return false
+        }
       }
     }
     if (origin.index === 5) {
       if (direction === 'up') {
+        swiper.mousewheel.enable()
         document.querySelectorAll('video').forEach((video) => video.play())
       }
     }

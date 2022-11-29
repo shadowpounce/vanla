@@ -662,7 +662,9 @@
   .container {
     width: 100%;
     padding: 0 80px;
-    position: relative;
+    position: absolute;
+    top: 50%;
+    transform: translate(0, -50%);
 
     big {
       top: 50%;
@@ -1089,7 +1091,7 @@
     overflow: hidden;
     display: flex;
     flex-direction: column;
-    justify-content: space-evenly;
+    justify-content: space-between;
 
     .wrapper {
       display: flex;
@@ -1434,7 +1436,6 @@
 
   > div {
     height: 100%;
-    // overflow: hidden;
 
     &::-webkit-scrollbar {
       height: 0px !important;
@@ -1655,6 +1656,10 @@
   height: 100%;
   position: relative;
   background: #fff4ee;
+
+  > div {
+    overflow: hidden !important;
+  }
 
   &.fp-completely {
     h1 {

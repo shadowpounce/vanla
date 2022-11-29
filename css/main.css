@@ -1114,7 +1114,9 @@ button {
 #section-1 .container {
   width: 100%;
   padding: 0 80px;
-  position: relative;
+  position: absolute;
+  top: 50%;
+  transform: translate(0, -50%);
 }
 #section-1 .container big {
   top: 50%;
@@ -1513,7 +1515,7 @@ button {
   overflow: hidden;
   display: flex;
   flex-direction: column;
-  justify-content: space-evenly;
+  justify-content: space-between;
 }
 #section-2 .container .wrapper {
   display: flex;
@@ -2008,6 +2010,9 @@ button {
   height: 100%;
   position: relative;
   background: #fff4ee;
+}
+#section-7 > div {
+  overflow: hidden !important;
 }
 #section-7.fp-completely h1 span {
   -webkit-animation: toStatic 1s forwards ease;
