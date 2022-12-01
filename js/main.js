@@ -1,5 +1,19 @@
 import Swiper from 'https://cdn.jsdelivr.net/npm/swiper@8/swiper-bundle.esm.browser.min.js'
 
+const vitaminesData = [
+  `Microdosing has proven to increase awareness, boost mood, improve engagement, and enhance focus. Our Gold Standard capsules contain 150mg of Golden Teacher psilocybin.`,
+
+  '5-HTP is a compound product derived from the seeds of the African plant known as Griffon simplicifolia. It is known for its natural ability to increase the production of the chemical serotonin. ',
+
+  `Vitamin D3 plays a vital role in strengthening bones and teeth. Sun exposure is one way to absorb this vitamin, but as sun exposure isn’t always promised, so taking supplementary vitamin D3 is necessary to maintain adequate levels. 
+`,
+  'Vitamin B12 is a nutrient that supports and nourishes the nervous system, brain, and red blood cell production. It helps support high energy levels.',
+
+  'Ginkgo Biloba helps to enhance memory, social behaviour and cognitive function in adults. ',
+
+  'Magnesium is an important mineral for your body. It is essential to your heart, metabolic, and bone health. ',
+]
+
 const video = document.querySelector('.middle-video')
 const capsule = document.querySelector('.main-capsule')
 const capsuleHead = capsule.querySelector('.head')
@@ -8,9 +22,57 @@ const capsuleLines = capsule.querySelector('.capsuleLines path')
 const middleWrapper = document.querySelector('.middle-wrapper')
 const pieces = middleWrapper.querySelectorAll('.piece')
 const videoCarousel = document.querySelector(`.carousel`)
-let canSlideDown = false
+
+// section 2 dropdown
+const dropdown = document.querySelector('.dropdown')
+const dropdownItems = dropdown.querySelectorAll('li')
+
+// section 7 select
+const select = document.querySelector('.select')
+const selectItems = select.querySelectorAll('li')
+const selectInfo = document.querySelector('.select-info')
+const selectTitle = selectInfo.querySelector('h4')
+const selectText = selectInfo.querySelector('p')
+
+selectItems.forEach((item) =>
+  item.addEventListener('click', (e) => selectThis(e))
+)
+
+function resetActiveSelects(e) {
+  selectItems.forEach((item) => (item.className = ''))
+
+  e.target.className = `active`
+}
+
+function selectThis(e) {
+  const id = e.target.id
+
+  resetActiveSelects(e)
+
+  selectText.innerHTML = vitaminesData[id]
+  selectTitle.innerHTML = e.target.innerHTML
+}
+
+function closeAllDropdowns() {
+  dropdownItems.forEach((item) => {
+    item.className = ``
+    item.querySelector('.body').className = `body`
+  })
+}
+
+function openDropdown(e) {
+  const dropdownBody = e.target.querySelector('.body')
+  closeAllDropdowns()
+
+  e.target.className = `li active`
+  dropdownBody.className = `body opened`
+}
+
+dropdownItems.forEach((item) => {
+  item.addEventListener('click', (e) => openDropdown(e))
+})
+
 let canSlideTop = false
-let currentVideoSlide = 0
 
 setTimeout(() => {
   capsule.className = `main-capsule init`

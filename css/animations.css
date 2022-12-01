@@ -308,3 +308,10 @@
     transform: translate(-50%, 0) rotate(360deg);
   }
 }
+
+@keyframes dropdownBody {
+  to {
+    display: block;
+    opacity: 1;
+  }
+}
