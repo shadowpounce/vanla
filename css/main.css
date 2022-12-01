@@ -1916,6 +1916,9 @@ button {
     height: 50px;
     margin-top: auto;
     display: block;
+    -webkit-animation: none;
+            animation: none;
+    opacity: 1;
   }
 }
 #section-1 > div {
@@ -2426,6 +2429,7 @@ button {
   height: 100%;
   background-color: #fff;
   position: relative;
+  margin-top: -2px;
 }
 @media (max-width: 480px) {
   #section-2 {
@@ -2478,6 +2482,10 @@ button {
 #section-2 .middle svg,
 #section-2 .middle img {
   position: absolute;
+}
+#section-2 .middle img {
+  width: 350px;
+  height: 350px;
 }
 @media (max-width: 1400px) {
   #section-2 .middle img {
@@ -2580,6 +2588,8 @@ button {
 #section-2 .container .wrapper .cards-slider {
   transform: translate(100px, 0);
   opacity: 0;
+  overflow: hidden;
+  max-width: 450px;
 }
 @media (max-width: 1400px) {
   #section-2 .container .wrapper .cards-slider {
@@ -2589,6 +2599,7 @@ button {
 #section-2 .container .wrapper .cards-slider .slider-buttons {
   display: flex;
   gap: 17px;
+  justify-content: end;
 }
 @media (max-width: 480px) {
   #section-2 .container .wrapper .cards-slider .slider-buttons {
@@ -2623,7 +2634,8 @@ button {
   display: flex;
   align-items: start;
   gap: 25px;
-  overflow: hidden;
+  transition: transform 0.5s ease;
+  transform: translate3d(0px, 0, 0);
 }
 @media (max-width: 480px) {
   #section-2 .container .wrapper .cards-slider .cards {
@@ -2641,6 +2653,8 @@ button {
   background-position: bottom;
   background-size: 100%;
   transform-origin: top left;
+  transition: 0.5s ease;
+  transition-property: transform opacity;
 }
 #section-2 .container .wrapper .cards-slider .cards .card.md, #section-2 .container .wrapper .cards-slider .cards .card.xs {
   transform: scale(0.8);
@@ -2648,19 +2662,30 @@ button {
 #section-2 .container .wrapper .cards-slider .cards .card.md {
   opacity: 0.8;
 }
+#section-2 .container .wrapper .cards-slider .cards .card.md .card__img {
+  transform: scale(0.8);
+}
 #section-2 .container .wrapper .cards-slider .cards .card.xs {
   margin-left: -30px;
   opacity: 0.6;
+}
+#section-2 .container .wrapper .cards-slider .cards .card.xs .card__img {
+  transform: scale(0.6);
 }
 #section-2 .container .wrapper .cards-slider .cards .card__img {
   margin: 0 auto;
   z-index: 3;
   display: block;
-  width: 70px;
+  width: 140px;
   height: 140px;
   -o-object-fit: contain;
      object-fit: contain;
   margin-bottom: 10px;
+  transition: all 0.5s ease;
+  -webkit-user-select: none;
+     -moz-user-select: none;
+      -ms-user-select: none;
+          user-select: none;
 }
 #section-2 .container .wrapper .cards-slider .cards .card__title {
   margin-left: 15px;
@@ -3358,7 +3383,10 @@ button {
   }
 }
 #section-9 .container .wrapper {
-  width: 100%;
+  width: -webkit-fit-content;
+  width: -moz-fit-content;
+  width: fit-content;
+  margin: 0 auto;
   display: flex;
   align-items: center;
   flex-direction: column;
@@ -3369,10 +3397,11 @@ button {
   background-image: url("../assets/images/screen_4_image.png");
   background-repeat: no-repeat;
   background-position: center;
+  border-radius: 355.5px;
+  padding: 80px 300px 70px;
 }
 @media (max-width: 1400px) {
   #section-9 .container .wrapper {
-    padding: 40px 0;
     background-size: contain;
   }
 }
@@ -3386,7 +3415,7 @@ button {
 #section-9 .container .wrapper .mango-leaf {
   position: absolute;
   top: -25%;
-  left: 15%;
+  left: 0;
   opacity: 0;
   transform: translate(0, -100px) rotate(14deg);
 }
@@ -3632,18 +3661,26 @@ button {
           animation-delay: 0.35s;
 }
 #section-10 .slider-wrapper .slider-panel .row .slider-btn {
-  width: 20px;
-  height: 20px;
+  width: 30px;
+  height: 30px;
   border-radius: 50%;
   display: flex;
   align-items: center;
   justify-content: center;
   border: 1.5px solid #ffffff;
+  transition: background-color 0.5s ease;
 }
-#section-10 .slider-wrapper .slider-panel .row .slider-btn.active {
+#section-10 .slider-wrapper .slider-panel .row .slider-btn svg {
+  width: 12px;
+  height: 12px;
+}
+#section-10 .slider-wrapper .slider-panel .row .slider-btn svg path {
+  transition: stroke 0.5s ease;
+}
+#section-10 .slider-wrapper .slider-panel .row .slider-btn:hover {
   background-color: #fff;
 }
-#section-10 .slider-wrapper .slider-panel .row .slider-btn.active svg path {
+#section-10 .slider-wrapper .slider-panel .row .slider-btn:hover svg path {
   stroke: #a28fcf;
 }
 #section-10 .slider-wrapper .slider-panel .row p {
@@ -3884,7 +3921,7 @@ button {
   }
 }
 #section-7 .container .wrapper .text-content {
-  max-width: 312px;
+  max-width: 350px;
   width: 100%;
 }
 @media (max-width: 480px) {
@@ -3921,6 +3958,7 @@ button {
   opacity: 0;
   -webkit-animation-delay: 0.2s;
           animation-delay: 0.2s;
+  width: 80%;
 }
 @media (max-width: 1400px) {
   #section-7 .container .wrapper .text-content p {

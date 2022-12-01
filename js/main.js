@@ -95,28 +95,98 @@ middleWrapper.addEventListener('mousemove', (e) => {
   }
 })
 
-const slider = document.querySelector('.slider-wrapper')
-const sliderItems = document.querySelector('.slider-items')
-const btnPrev = document.querySelector('.slider-btn.left')
-const btnNext = document.querySelector('.slider-btn.right')
-let currentSlide = 3
+const cardSlider = document.querySelector('.cards-slider')
+const btnPrev = cardSlider.querySelector('.slider-btn.left')
+const btnNext = cardSlider.querySelector('.slider-btn.right')
+const cardSliderWrapper = cardSlider.querySelector('.cards')
+const cards = cardSlider.querySelectorAll('.card')
+const cardsLength = cards.length
+let currentSlideIndex = 1
 
-btnNext.addEventListener('click', () => {
-  if (currentSlide !== 5) {
-    currentSlide++
-    slide(currentSlide)
+btnNext.addEventListener('click', () => slideNext())
+btnPrev.addEventListener('click', () => slidePrev())
+
+function slidePrev() {
+  if (currentSlideIndex !== 1) {
+    currentSlideIndex -= 1
+    disableButton()
+
+    if (currentSlideIndex === cardsLength - 1) {
+      cardSlider.querySelector(
+        `#card-${currentSlideIndex + 1}`
+      ).className = `card md`
+      cardSlider.querySelector(`#card-${currentSlideIndex}`).className = `card`
+      cardSliderWrapper.style.transform = `translate3d(-${
+        (currentSlideIndex - 1) * 150
+      }px, 0 ,0)`
+    } else {
+      cardSlider.querySelector(`#card-${currentSlideIndex}`).className = `card`
+
+      cardSlider.querySelector(
+        `#card-${currentSlideIndex + 1}`
+      ).className = `card md`
+
+      cardSlider.querySelector(
+        `#card-${currentSlideIndex + 2}`
+      ).className = `card xs`
+
+      cardSliderWrapper.style.transform = `translate3d(-${
+        (currentSlideIndex - 1) * 130
+      }px, 0 ,0)`
+    }
   }
-})
+}
 
-btnPrev.addEventListener('click', () => {
-  if (currentSlide !== 1) {
-    currentSlide--
-    slide(currentSlide)
+function disableButton() {
+  if (currentSlideIndex === cardsLength) {
+    btnNext.className = `slider-btn right`
+  } else {
+    btnNext.className = `slider-btn right active`
   }
-})
+  if (currentSlideIndex === 1) {
+    btnPrev.className = `slider-btn left`
+  } else {
+    btnPrev.className = `slider-btn left active`
+  }
+}
 
-function slide(id) {
-  sliderItems.className = `slider-items slide-${id}`
+function slideNext() {
+  if (currentSlideIndex !== cardsLength) {
+    currentSlideIndex += 1
+    disableButton()
+
+    if (currentSlideIndex === cardsLength) {
+      cardSlider.querySelector(`#card-${currentSlideIndex}`).className = `card`
+      cardSliderWrapper.style.transform = `translate3d(-${
+        (currentSlideIndex - 1) * 160
+      }px, 0 ,0)`
+      return true
+    }
+
+    if (currentSlideIndex === cardsLength - 1) {
+      cardSlider.querySelector(`#card-${currentSlideIndex}`).className = `card`
+      cardSlider.querySelector(
+        `#card-${currentSlideIndex + 1}`
+      ).className = `card md`
+      cardSliderWrapper.style.transform = `translate3d(-${
+        (currentSlideIndex - 1) * 150
+      }px, 0 ,0)`
+    } else {
+      cardSlider.querySelector(
+        `#card-${currentSlideIndex - 1}`
+      ).className = `card xs`
+      cardSlider.querySelector(`#card-${currentSlideIndex}`).className = `card`
+      cardSlider.querySelector(
+        `#card-${currentSlideIndex + 1}`
+      ).className = `card md`
+      cardSlider.querySelector(
+        `#card-${currentSlideIndex + 2}`
+      ).className = `card xs`
+      cardSliderWrapper.style.transform = `translate3d(-${
+        (currentSlideIndex - 1) * 130
+      }px, 0 ,0)`
+    }
+  }
 }
 
 const swiper = new Swiper('.carousel-section', {

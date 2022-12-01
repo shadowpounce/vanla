@@ -1210,6 +1210,8 @@
       height: 50px;
       margin-top: auto;
       display: block;
+      animation: none;
+      opacity: 1;
     }
   }
 
@@ -1708,6 +1710,7 @@
   height: 100%;
   background-color: #fff;
   position: relative;
+  margin-top: -2px;
 
   @media (max-width: 480px) {
     min-height: unset !important;
@@ -1759,6 +1762,9 @@
     }
 
     img {
+      width: 350px;
+      height: 350px;
+
       @media (max-width: 1400px) {
         width: 255px !important;
         height: 255px !important;
@@ -1860,6 +1866,8 @@
       .cards-slider {
         transform: translate(100px, 0);
         opacity: 0;
+        overflow: hidden;
+        max-width: 450px;
 
         @media (max-width: 1400px) {
           transform: translate(50px, 0);
@@ -1868,6 +1876,7 @@
         .slider-buttons {
           display: flex;
           gap: 17px;
+          justify-content: end;
 
           @media (max-width: 480px) {
             display: none;
@@ -1905,7 +1914,8 @@
           display: flex;
           align-items: start;
           gap: 25px;
-          overflow: hidden;
+          transition: transform 0.5s ease;
+          transform: translate3d(-0px, 0, 0);
 
           @media (max-width: 480px) {
             margin: 0 !important;
@@ -1922,6 +1932,8 @@
             background-position: bottom;
             background-size: 100%;
             transform-origin: top left;
+            transition: 0.5s ease;
+            transition-property: transform opacity;
 
             &.md,
             &.xs {
@@ -1930,21 +1942,31 @@
 
             &.md {
               opacity: 0.8;
+
+              .card__img {
+                transform: scale(0.8);
+              }
             }
 
             &.xs {
               margin-left: -30px;
               opacity: 0.6;
+
+              .card__img {
+                transform: scale(0.6);
+              }
             }
 
             &__img {
               margin: 0 auto;
               z-index: 3;
               display: block;
-              width: 70px;
+              width: 140px;
               height: 140px;
               object-fit: contain;
               margin-bottom: 10px;
+              transition: all 0.5s ease;
+              user-select: none;
             }
 
             &__title {
@@ -2662,7 +2684,8 @@
     }
 
     .wrapper {
-      width: 100%;
+      width: fit-content;
+      margin: 0 auto;
       display: flex;
       align-items: center;
       flex-direction: column;
@@ -2673,9 +2696,10 @@
       background-image: url('../assets/images/screen_4_image.png');
       background-repeat: no-repeat;
       background-position: center;
+      border-radius: 355.5px;
+      padding: 80px 300px 70px;
 
       @media (max-width: 1400px) {
-        padding: 40px 0;
         background-size: contain;
       }
 
@@ -2688,7 +2712,7 @@
       .mango-leaf {
         position: absolute;
         top: -25%;
-        left: 15%;
+        left: 0;
         opacity: 0;
         transform: translate(0, -100px) rotate(14deg);
 
@@ -2938,15 +2962,25 @@
         animation-delay: 0.35s;
 
         .slider-btn {
-          width: 20px;
-          height: 20px;
+          width: 30px;
+          height: 30px;
           border-radius: 50%;
           display: flex;
           align-items: center;
           justify-content: center;
           border: 1.5px solid #ffffff;
+          transition: background-color 0.5s ease;
 
-          &.active {
+          svg {
+            width: 12px;
+            height: 12px;
+
+            path {
+              transition: stroke 0.5s ease;
+            }
+          }
+
+          &:hover {
             background-color: #fff;
 
             svg path {
@@ -3194,7 +3228,7 @@
       }
 
       .text-content {
-        max-width: 312px;
+        max-width: 350px;
         width: 100%;
 
         @media (max-width: 480px) {
@@ -3229,6 +3263,7 @@
           transform: translate(-50px, 0);
           opacity: 0;
           animation-delay: 0.2s;
+          width: 80%;
 
           @media (max-width: 1400px) {
             font-size: 14px;
