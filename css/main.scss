@@ -1205,7 +1205,7 @@
     @media (max-width: 480px) {
       bottom: 0 !important;
       position: relative;
-      height: 100px;
+      height: 50px;
       margin-top: auto;
       display: block;
     }
@@ -1267,6 +1267,7 @@
       width: 36px;
       height: 36px;
       top: 30px !important;
+      display: none;
     }
   }
 

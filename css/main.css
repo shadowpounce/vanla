@@ -1909,7 +1909,7 @@ button {
   #section-1 .bottom-wave {
     bottom: 0 !important;
     position: relative;
-    height: 100px;
+    height: 50px;
     margin-top: auto;
     display: block;
   }
@@ -1971,6 +1971,7 @@ button {
     width: 36px;
     height: 36px;
     top: 30px !important;
+    display: none;
   }
 }
 #section-1 .container {
