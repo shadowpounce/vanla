@@ -72,8 +72,6 @@ dropdownItems.forEach((item) => {
   item.addEventListener('click', (e) => openDropdown(e))
 })
 
-let canSlideTop = false
-
 setTimeout(() => {
   capsule.className = `main-capsule init`
 }, 100)
@@ -199,18 +197,17 @@ const swiper = new Swiper('.carousel-section', {
   mousewheel: true,
 })
 
-videoCarousel.addEventListener('wheel', (e) => {
-  let slide = e.target
-    .closest('#section-5')
-    .querySelector('.swiper-slide-active')
-  if (slide.ariaLabel === `1 / 4`) {
-    canSlideTop = true
-  } else {
-    canSlideTop = false
-  }
-  if (slide.ariaLabel === `4 / 4`) {
-    swiper.mousewheel.disable()
-  }
+let activeVideoSlide = swiper.activeIndex
+
+videoCarousel.addEventListener('wheel', () => {
+  activeVideoSlide === 3 ? fullpage_api.moveTo(6) : void 0
+})
+
+swiper.on('slideChange', () => {
+  setTimeout(() => {
+    activeVideoSlide = swiper.activeIndex
+  }, 500)
+  console.log(activeVideoSlide)
 })
 
 new fullpage('#fullpage', {
@@ -263,16 +260,14 @@ new fullpage('#fullpage', {
     }
     if (origin.index === 4) {
       if (direction === 'up') {
-        if (canSlideTop) {
+        if (activeVideoSlide === 0) {
           video.className = `middle-video inBig`
-        } else if (!canSlideTop) {
-          return false
-        }
+        } else return false
       }
     }
     if (origin.index === 5) {
       if (direction === 'up') {
-        swiper.mousewheel.enable()
+        swiper.slideTo(0, 800, false)
         document.querySelectorAll('video').forEach((video) => video.play())
       }
     }
