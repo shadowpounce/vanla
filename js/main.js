@@ -148,7 +148,6 @@ new fullpage('#fullpage', {
   scrollingSpeed: 700,
   fitToSectionDelay: 100,
   lazyLoading: false,
-
   onLeave: function (origin, destination, direction, trigger) {
     if (origin.index == 0 && direction == 'down') {
       capsule.className = `main-capsule toDown`

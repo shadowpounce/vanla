@@ -1173,7 +1173,9 @@
   }
 
   @media (max-width: 480px) {
-    height: 100vh;
+    height: fit-content;
+    justify-content: start;
+    min-height: unset !important;
   }
 
   .bottom-wave {

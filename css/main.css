@@ -1874,7 +1874,11 @@ button {
 }
 @media (max-width: 480px) {
   #section-1 {
-    height: 100vh;
+    height: -webkit-fit-content;
+    height: -moz-fit-content;
+    height: fit-content;
+    justify-content: start;
+    min-height: unset !important;
   }
 }
 #section-1 .bottom-wave {
