@@ -364,6 +364,11 @@
       width: 470px;
       height: 470px;
 
+      @media (max-width: 1400px) {
+        width: 400px;
+        height: 400px;
+      }
+
       @media (max-width: 480px) {
         width: 220px !important;
         height: 220px !important;
@@ -2173,9 +2178,9 @@
       flex: 1;
 
       @media (max-width: 1750px) {
-        min-width: 400px;
-        max-width: 400px;
-        height: 400px;
+        min-width: 470px;
+        max-width: 470px;
+        height: 470px;
       }
 
       svg {
@@ -2185,8 +2190,8 @@
         z-index: 999 !important;
 
         @media (max-width: 1750px) {
-          width: 420px;
-          height: 420px;
+          width: 470px;
+          height: 470px;
           top: 50%;
           left: 50%;
           transform: translate(-50%, -50%);
@@ -2823,13 +2828,14 @@
   flex-direction: column;
   align-items: center;
   justify-content: center;
+  overflow: hidden !important;
 
   &.fp-completely {
     .btn-transparent {
       animation: toStatic 1s forwards ease;
     }
 
-    .term {
+    .card-title {
       animation: toStatic 1s forwards ease;
     }
 
@@ -2852,17 +2858,18 @@
     overflow: hidden !important;
     display: flex;
     flex-direction: column;
-    justify-content: space-evenly;
+    justify-content: start;
   }
 
   h2 {
     font-weight: 700;
     font-size: 80px;
-    line-height: 140%;
+    line-height: 100%;
     color: #fffdf6;
     text-align: center;
     opacity: 0;
     transform: translate(0, 50px);
+    margin: 30px 0 0 0;
 
     @media (max-width: 1400px) {
       font-size: 60px;
@@ -2873,12 +2880,58 @@
     display: flex;
     flex-direction: column;
     align-items: center;
+    justify-content: end;
     width: 100%;
     font-family: 'Plus Jakarta Sans';
     color: #ffffff;
     overflow: hidden;
     transform: translate(0, 50px);
     opacity: 0;
+    position: relative;
+    height: 100%;
+    padding-bottom: 20px;
+
+    > svg {
+      transform-origin: center;
+      position: absolute;
+      top: 50px;
+      width: 3500px;
+      height: 3500px;
+
+      transition: transform 0.75s ease;
+
+      @media (max-width: 1750px) {
+        width: 2500px;
+        height: 2500px;
+      }
+
+      @media (max-width: 1600px) {
+        width: 2250px;
+        height: 2250px;
+      }
+
+      @media (max-width: 1400px) {
+        width: 2000px;
+        height: 2000px;
+      }
+
+      rect {
+        display: block;
+        position: relative;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        cursor: pointer;
+
+        &::before {
+          content: '';
+          width: 50px;
+          height: 50px;
+          background-color: red;
+          display: block;
+        }
+      }
+    }
 
     .swiper-button-prev,
     .swiper-button-next {
@@ -2929,13 +2982,7 @@
     }
 
     .slider-panel {
-      margin-top: 30px;
-
-      @media (max-width: 1400px) {
-        margin-top: 10px;
-      }
-
-      .term {
+      .card-title {
         padding: 12px 36px;
         background-color: #fff;
         border-radius: 130px;
@@ -3280,6 +3327,82 @@
   height: 100%;
   background: #fff4ee;
   color: #000000;
+  position: relative;
+
+  .wrapper {
+    position: absolute;
+    top: 40%;
+    left: 25%;
+  }
+
+  .tab {
+    padding: 10px 25px;
+    background: #a6a998;
+    border-radius: 50px;
+    width: fit-content;
+    position: absolute;
+
+    &.tab-1 {
+      transform: rotate(-12deg);
+      top: -50%;
+      left: 35%;
+      animation: p1 2s forwards ease;
+    }
+
+    &.tab-2 {
+      background: #fccd80;
+    }
+
+    &.tab-3 {
+      background: #fccd80;
+    }
+
+    &.tab-4 {
+      background: #fccd80;
+    }
+
+    &.tab-5 {
+      background: #fccd80;
+    }
+
+    &.tab-6 {
+      background: #fccd80;
+    }
+
+    &.tab-7 {
+      background: #fccd80;
+    }
+
+    &.tab-8 {
+      background: #fccd80;
+    }
+
+    &.tab-9 {
+      background: #fccd80;
+    }
+
+    &.tab-10 {
+      background: #fccd80;
+    }
+
+    &.tab-11 {
+      background: #fccd80;
+    }
+
+    &.tab-12 {
+      background: #fccd80;
+    }
+
+    &.tab-13 {
+      background: #fccd80;
+    }
+
+    font-family: 'Plus Jakarta Sans';
+    font-weight: 400;
+    font-size: 24px;
+    line-height: 31px;
+    color: #000;
+  }
 
   > div {
     @media (max-width: 480px) {
@@ -3292,19 +3415,18 @@
       animation: toStatic 1s forwards ease;
     }
 
-    img {
+    .union {
       animation: toStatic 1s forwards ease;
-      animation-delay: 0.2s;
+    }
+
+    .people {
+      animation: toStatic 1s forwards ease;
     }
   }
 
   .container {
     min-height: 100vh;
     height: 100%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    flex-direction: column;
 
     @media (max-width: 480px) {
       padding: 0 20px;
@@ -3317,53 +3439,27 @@
       text-align: center;
       transform: translate(30px);
       opacity: 0;
-
-      @media (max-width: 1750px) {
-        font-size: 70px;
-      }
-
-      @media (max-width: 1400px) {
-        font-size: 60px;
-        line-height: 100%;
-      }
-
-      @media (max-width: 480px) {
-        font-size: 40px;
-        line-height: 52px;
-      }
     }
 
     .row {
       display: flex;
       align-items: center;
-    }
-
-    .one {
       position: relative;
-      img {
-        display: block;
-        margin: -100px -20px 0 0;
-        transform: translate(-10px);
+
+      .union {
+        position: absolute;
+        left: -70px;
+        top: -50px;
         opacity: 0;
-
-        @media (max-width: 480px) {
-          position: absolute;
-        }
-      }
-    }
-
-    .two {
-      gap: 10px;
-
-      @media (max-width: 480px) {
-        display: flex;
-        flex-direction: column;
-        align-items: center;
+        transform: translate(-50px, 0);
       }
 
-      img {
-        transform: translate(20px, 0) rotate(3deg);
+      .people {
+        position: absolute;
+        top: 50%;
+        right: -150px;
         opacity: 0;
+        transform: translate(50px, 0) rotate(7deg);
       }
     }
   }

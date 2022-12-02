@@ -5,7 +5,7 @@ const vitaminesData = [
 
   '5-HTP is a compound product derived from the seeds of the African plant known as Griffon simplicifolia. It is known for its natural ability to increase the production of the chemical serotonin. ',
 
-  `Vitamin D3 plays a vital role in strengthening bones and teeth. Sun exposure is one way to absorb this vitamin, but as sun exposure isn’t always promised, so taking supplementary vitamin D3 is necessary to maintain adequate levels. 
+  `Vitamin D3 plays a vital role in strengthening bones and teeth. Sun exposure is one way to absorb this vitamin, but as sun exposure isn’t always promised, so taking supplementary vitamin D3 is necessary to maintain adequate levels.
 `,
   'Vitamin B12 is a nutrient that supports and nourishes the nervous system, brain, and red blood cell production. It helps support high energy levels.',
 
@@ -209,6 +209,113 @@ swiper.on('slideChange', () => {
   }, 500)
   console.log(activeVideoSlide)
 })
+
+const cardCarouselButtonPrev = document.querySelector('.car-prev')
+const cardCarouselButtonNext = document.querySelector('.car-next')
+const cardCarousel = document.querySelector('.card-carousel')
+const cardPanel = document.querySelector('.slider-panel')
+const cardTitle = cardPanel.querySelector('.card-title')
+
+let currentCarouselSlide = 0
+
+function updateCardInfo(id) {
+  if (
+    id === 0 ||
+    id === 5 ||
+    id === -5 ||
+    id === 10 ||
+    id === -10 ||
+    id === 15 ||
+    id === -15 ||
+    id === 20 ||
+    id === -20
+  ) {
+    cardTitle.innerHTML = 'GOLD STANDART'
+  } else if (
+    id === 1 ||
+    id === -1 ||
+    id === 6 ||
+    id === -6 ||
+    id === 11 ||
+    id === -11 ||
+    id === -16 ||
+    id === 16 ||
+    id === -21 ||
+    id === 21
+  ) {
+    cardTitle.innerHTML = '3 MONTH'
+  } else if (
+    id === 2 ||
+    id === -2 ||
+    id === 7 ||
+    id === -7 ||
+    id === 12 ||
+    id === -12 ||
+    id === 17 ||
+    id === -17 ||
+    id === 22 ||
+    id === -22
+  ) {
+    cardTitle.innerHTML = 'TRAVEL SIZE'
+  } else if (
+    id === 3 ||
+    id === -3 ||
+    id === 8 ||
+    id === -8 ||
+    id === 13 ||
+    id === -13 ||
+    id === 18 ||
+    id === -18 ||
+    id === -23 ||
+    id === 23
+  ) {
+    cardTitle.innerHTML = 'BUNDLE'
+  } else if (
+    id === 4 ||
+    id === -4 ||
+    id === 9 ||
+    id === -9 ||
+    id === -14 ||
+    id === 14 ||
+    id === -19 ||
+    id === 19 ||
+    id === 24 ||
+    id === -24
+  ) {
+    cardTitle.innerHTML = 'UNISEX HOODIE'
+  }
+}
+
+cardCarouselButtonNext.addEventListener('click', () =>
+  slideNextCarousel('next')
+)
+
+cardCarouselButtonPrev.addEventListener('click', () =>
+  slideNextCarousel('prev')
+)
+
+console.log(cardCarouselButtonNext)
+
+function slideNextCarousel(direction) {
+  if (direction === 'next') {
+    if (currentCarouselSlide === -24) {
+      currentCarouselSlide = 0
+      updateCardInfo(currentCarouselSlide)
+    }
+    currentCarouselSlide -= 1
+    updateCardInfo(currentCarouselSlide)
+  } else {
+    if (currentCarouselSlide === 24) {
+      currentCarouselSlide = 0
+      updateCardInfo(currentCarouselSlide)
+    }
+    currentCarouselSlide += 1
+    updateCardInfo(currentCarouselSlide)
+  }
+
+  cardCarousel.style.transform = `rotate(${currentCarouselSlide * 15}deg)`
+  console.log(currentCarouselSlide)
+}
 
 new fullpage('#fullpage', {
   licenseKey: 'R8KHJ-2KN68-IZFN6-2PMWI-ZSBML',
