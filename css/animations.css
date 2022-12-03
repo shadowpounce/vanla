@@ -555,4 +555,16 @@
     top: 33.5%;
     transform: rotate(4.5deg);
   }
+}
+@-webkit-keyframes capsuleMobile {
+  to {
+    opacity: 1;
+    transform: translate(-50%, -50%) rotate(7deg);
+  }
+}
+@keyframes capsuleMobile {
+  to {
+    opacity: 1;
+    transform: translate(-50%, -50%) rotate(7deg);
+  }
 }/*# sourceMappingURL=animations.css.map */

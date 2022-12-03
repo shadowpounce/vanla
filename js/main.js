@@ -29,6 +29,7 @@ const section12 = document.querySelector('#section-12')
 const section13 = document.querySelector('#section-13')
 const video = document.querySelector('.middle-video')
 const capsule = document.querySelector('.main-capsule')
+const mobileCapsule = document.querySelector('.mobile-capsule')
 const capsuleHead = capsule.querySelector('.head')
 const capsulePieces = capsule.querySelector('.pieces')
 const capsuleLines = capsule.querySelector('.capsuleLines path')
@@ -87,7 +88,9 @@ dropdownItems.forEach((item) => {
 })
 
 setTimeout(() => {
-  capsule.className = `main-capsule init`
+  document.body.clientWidth > 480
+    ? (capsule.className = `main-capsule init`)
+    : (mobileCapsule.className = `main-capsule mobile-capsule mobileIn`)
 }, 100)
 
 middleWrapper.addEventListener('mouseout', () => {
@@ -114,9 +117,11 @@ const cardSliderWrapper = cardSlider.querySelector('.cards')
 const cards = cardSlider.querySelectorAll('.slider-card')
 const cardsLength = cards.length
 
-cards.forEach((card) => {
-  card.addEventListener('click', (e) => slideByClick(e))
-})
+if (document.body.clientWidth <= 480) {
+  cards.forEach((card) => {
+    card.addEventListener('click', (e) => slideByClick(e))
+  })
+}
 
 let currentSlideIndex = 1
 
