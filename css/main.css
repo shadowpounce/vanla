@@ -648,6 +648,7 @@ button {
   .middle-video {
     width: 200px;
     height: 200px;
+    display: none;
   }
 }
 .middle-video [data-img="1"] {
@@ -2147,6 +2148,34 @@ button {
   height: -moz-fit-content;
   height: fit-content;
   z-index: 10;
+  position: relative;
+}
+#section-1 .container .middle-wrapper .mobile-capsule {
+  display: none;
+  top: 50%;
+  left: 50%;
+  position: absolute;
+  transform: translate(-50%, -50%) rotate(7deg);
+  max-width: 75px;
+}
+@media (max-width: 480px) {
+  #section-1 .container .middle-wrapper .mobile-capsule .capsuleLines {
+    width: 225px;
+    height: 210px;
+    top: 0;
+    left: -96%;
+  }
+}
+@media (max-width: 480px) {
+  #section-1 .container .middle-wrapper .mobile-capsule .head {
+    margin-bottom: -30px;
+  }
+}
+@media (max-width: 480px) {
+  #section-1 .container .middle-wrapper .mobile-capsule {
+    display: block;
+    opacity: 1;
+  }
 }
 @media (max-width: 1750px) {
   #section-1 .container .middle-wrapper {
@@ -2378,8 +2407,8 @@ button {
 }
 @media (max-width: 480px) {
   #section-1 .container .row .right button {
-    right: 20px;
-    bottom: 15px;
+    right: 0;
+    bottom: 0;
   }
 }
 #section-1 .container .row .right button img {
@@ -2506,6 +2535,18 @@ button {
   transform: translate(-50%, -50%) scale(0.5);
   opacity: 0;
   margin-bottom: -50px;
+}
+#section-2 .middle .mobile-capsule {
+  display: none;
+  position: static;
+}
+@media (max-width: 480px) {
+  #section-2 .middle .mobile-capsule {
+    display: block;
+    width: 100px !important;
+    height: 150px !important;
+    opacity: 1;
+  }
 }
 @media (max-width: 1750px) {
   #section-2 .middle {
@@ -2732,7 +2773,7 @@ button {
 @media (max-width: 480px) {
   #section-2 .container .wrapper .cards-slider .cards {
     margin: 0 !important;
-    transform: translate(10%, 0);
+    transform: none;
   }
 }
 #section-2 .container .wrapper .cards-slider .cards .card {
@@ -4267,6 +4308,11 @@ button {
   top: 40%;
   left: 25%;
 }
+@media (max-width: 480px) {
+  #section-11 .wrapper {
+    left: 0;
+  }
+}
 #section-11 .tab {
   padding: 10px 25px;
   background: #a6a998;
@@ -4358,6 +4404,14 @@ button {
   transform: translate(30px);
   opacity: 0;
 }
+@media (max-width: 480px) {
+  #section-11 .container h1 {
+    font-size: 40px;
+    line-height: 52px;
+    opacity: 1;
+    transform: none;
+  }
+}
 #section-11 .container .row {
   display: flex;
   align-items: center;
@@ -4370,12 +4424,32 @@ button {
   opacity: 0;
   transform: translate(-50px, 0);
 }
+@media (max-width: 480px) {
+  #section-11 .container .row .union {
+    left: 0;
+    opacity: 1;
+    transform: none;
+    max-width: 50px;
+    top: 0;
+    left: 15%;
+  }
+}
 #section-11 .container .row .people {
   position: absolute;
   top: 50%;
   right: -150px;
   opacity: 0;
   transform: translate(50px, 0) rotate(7deg);
+}
+@media (max-width: 480px) {
+  #section-11 .container .row .people {
+    right: 10%;
+    opacity: 1;
+    transform: none;
+    max-width: 95px;
+    bottom: 0;
+    top: unset !important;
+  }
 }
 
 #section-6 {
@@ -4434,7 +4508,7 @@ button {
 }
 @media (max-width: 480px) {
   #section-6 .container {
-    padding-left: 20px;
+    padding: 50px 20px;
     min-height: unset;
     height: unset;
     overflow: unset !important;
@@ -5054,6 +5128,11 @@ button {
   align-items: center;
   justify-content: center;
 }
+@media (max-width: 480px) {
+  #section-14 {
+    overflow: hidden;
+  }
+}
 
 #section-15 {
   background: #fff4ee;
@@ -5062,6 +5141,11 @@ button {
   display: flex;
   align-items: center;
   justify-content: center;
+}
+@media (max-width: 480px) {
+  #section-15 {
+    overflow: hidden !important;
+  }
 }
 #section-15 > div {
   width: 100%;

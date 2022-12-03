@@ -73,6 +73,7 @@
   @media (max-width: 480px) {
     width: 200px;
     height: 200px;
+    display: none;
   }
 
   [data-img='1'] {
@@ -1388,6 +1389,36 @@
       width: 100%;
       height: fit-content;
       z-index: 10;
+      position: relative;
+
+      .mobile-capsule {
+        display: none;
+        top: 50%;
+        left: 50%;
+        position: absolute;
+        transform: translate(-50%, -50%) rotate(7deg);
+        max-width: 75px;
+
+        .capsuleLines {
+          @media (max-width: 480px) {
+            width: 225px;
+            height: 210px;
+            top: 0;
+            left: -96%;
+          }
+        }
+
+        .head {
+          @media (max-width: 480px) {
+            margin-bottom: -30px;
+          }
+        }
+
+        @media (max-width: 480px) {
+          display: block;
+          opacity: 1;
+        }
+      }
 
       @media (max-width: 1750px) {
         height: 200px;
@@ -1613,8 +1644,8 @@
           animation: toStatic 1s forwards ease;
 
           @media (max-width: 480px) {
-            right: 20px;
-            bottom: 15px;
+            right: 0;
+            bottom: 0;
           }
 
           img {
@@ -1738,6 +1769,18 @@
     transform: translate(-50%, -50%) scale(0.5);
     opacity: 0;
     margin-bottom: -50px;
+
+    .mobile-capsule {
+      display: none;
+      position: static;
+
+      @media (max-width: 480px) {
+        display: block;
+        width: 100px !important;
+        height: 150px !important;
+        opacity: 1;
+      }
+    }
 
     @media (max-width: 1750px) {
       width: 400px !important;
@@ -1958,7 +2001,7 @@
 
           @media (max-width: 480px) {
             margin: 0 !important;
-            transform: translate(10%, 0);
+            transform: none;
           }
 
           .card {
@@ -3501,6 +3544,10 @@
     position: absolute;
     top: 40%;
     left: 25%;
+
+    @media (max-width: 480px) {
+      left: 0;
+    }
   }
 
   .tab {
@@ -3607,6 +3654,13 @@
       text-align: center;
       transform: translate(30px);
       opacity: 0;
+
+      @media (max-width: 480px) {
+        font-size: 40px;
+        line-height: 52px;
+        opacity: 1;
+        transform: none;
+      }
     }
 
     .row {
@@ -3620,6 +3674,15 @@
         top: -50px;
         opacity: 0;
         transform: translate(-50px, 0);
+
+        @media (max-width: 480px) {
+          left: 0;
+          opacity: 1;
+          transform: none;
+          max-width: 50px;
+          top: 0;
+          left: 15%;
+        }
       }
 
       .people {
@@ -3628,6 +3691,15 @@
         right: -150px;
         opacity: 0;
         transform: translate(50px, 0) rotate(7deg);
+
+        @media (max-width: 480px) {
+          right: 10%;
+          opacity: 1;
+          transform: none;
+          max-width: 95px;
+          bottom: 0;
+          top: unset !important;
+        }
       }
     }
   }
@@ -3687,7 +3759,7 @@
     }
 
     @media (max-width: 480px) {
-      padding-left: 20px;
+      padding: 50px 20px;
       min-height: unset;
       height: unset;
       overflow: unset !important;
@@ -4321,6 +4393,10 @@
   display: flex;
   align-items: center;
   justify-content: center;
+
+  @media (max-width: 480px) {
+    overflow: hidden;
+  }
 }
 
 #section-15 {
@@ -4330,6 +4406,10 @@
   display: flex;
   align-items: center;
   justify-content: center;
+
+  @media (max-width: 480px) {
+    overflow: hidden !important;
+  }
 
   > div {
     width: 100%;

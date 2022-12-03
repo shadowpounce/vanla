@@ -37,13 +37,6 @@ const pieces = middleWrapper.querySelectorAll('.piece')
 const videoCarousel = document.querySelector(`.carousel`)
 let currentScrollY = 0
 
-if (document.body.clientWidth <= 480) {
-  document.querySelectorAll('.video').forEach((video) => {
-    video.querySelector('video').play()
-  })
-  window.addEventListener('scroll', () => scrollingMobile())
-}
-
 // section 2 dropdown
 const dropdown = document.querySelector('.dropdown')
 const dropdownItems = dropdown.querySelectorAll('li')
@@ -118,12 +111,57 @@ const cardSlider = document.querySelector('.cards-slider')
 const btnPrev = cardSlider.querySelector('.slider-btn.left')
 const btnNext = cardSlider.querySelector('.slider-btn.right')
 const cardSliderWrapper = cardSlider.querySelector('.cards')
-const cards = cardSlider.querySelectorAll('.card')
+const cards = cardSlider.querySelectorAll('.slider-card')
 const cardsLength = cards.length
+
+cards.forEach((card) => {
+  card.addEventListener('click', (e) => slideByClick(e))
+})
+
 let currentSlideIndex = 1
 
 btnNext.addEventListener('click', () => slideNext())
 btnPrev.addEventListener('click', () => slidePrev())
+
+function slideByClick(e) {
+  const target = e.target.closest('.slider-card')
+  const dataID = e.target.closest('.slider-card').dataset.id
+  const targetPrev = cardSliderWrapper.querySelector(
+    `#card-${Number(dataID) - 1}`
+  )
+  const targetNext = cardSliderWrapper.querySelector(
+    `#card-${Number(dataID) + 1}`
+  )
+  const targetNextTwo = cardSliderWrapper.querySelector(
+    `#card-${Number(dataID) + 2}`
+  )
+
+  currentSlideIndex = Number(dataID)
+  console.log(dataID)
+  console.log(cardsLength)
+
+  if (currentSlideIndex === cardsLength) {
+    target.className = `card slider-card`
+    cardSliderWrapper.style.transform = `translate3d(-${
+      (currentSlideIndex - 1) * 150
+    }px, 0 ,0)`
+    return true
+  } else if (currentSlideIndex === cardsLength - 1) {
+    target.className = `card slider-card`
+    targetNext.className = `card slider-card md`
+    cardSliderWrapper.style.transform = `translate3d(-${
+      (currentSlideIndex - 1) * 150
+    }px, 0 ,0)`
+    return true
+  } else {
+    target.className = `card slider-card`
+    targetNext.className = `card slider-card md`
+    targetNextTwo.className = `card slider-card xs`
+    cardSliderWrapper.style.transform = `translate3d(-${
+      (currentSlideIndex - 1) * 150
+    }px, 0 ,0)`
+  }
+}
 
 function slidePrev() {
   if (currentSlideIndex !== 1) {
