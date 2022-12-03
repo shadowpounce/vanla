@@ -14,6 +14,19 @@ const vitaminesData = [
   'Magnesium is an important mineral for your body. It is essential to your heart, metabolic, and bone health. ',
 ]
 
+const section1 = document.querySelector('#section-1')
+const section2 = document.querySelector('#section-2')
+const section3 = document.querySelector('#section-3')
+const section4 = document.querySelector('#section-4')
+const section5 = document.querySelector('#section-5')
+const section6 = document.querySelector('#section-6')
+const section7 = document.querySelector('#section-7')
+const section8 = document.querySelector('#section-8')
+const section9 = document.querySelector('#section-9')
+const section10 = document.querySelector('#section-10')
+const section11 = document.querySelector('#section-11')
+const section12 = document.querySelector('#section-12')
+const section13 = document.querySelector('#section-13')
 const video = document.querySelector('.middle-video')
 const capsule = document.querySelector('.main-capsule')
 const capsuleHead = capsule.querySelector('.head')
@@ -22,6 +35,14 @@ const capsuleLines = capsule.querySelector('.capsuleLines path')
 const middleWrapper = document.querySelector('.middle-wrapper')
 const pieces = middleWrapper.querySelectorAll('.piece')
 const videoCarousel = document.querySelector(`.carousel`)
+let currentScrollY = 0
+
+if (document.body.clientWidth <= 480) {
+  document.querySelectorAll('.video').forEach((video) => {
+    video.querySelector('video').play()
+  })
+  window.addEventListener('scroll', () => scrollingMobile())
+}
 
 // section 2 dropdown
 const dropdown = document.querySelector('.dropdown')
@@ -317,66 +338,68 @@ function slideNextCarousel(direction) {
   console.log(currentCarouselSlide)
 }
 
-new fullpage('#fullpage', {
-  licenseKey: 'R8KHJ-2KN68-IZFN6-2PMWI-ZSBML',
-  scrollingSpeed: 700,
-  fitToSectionDelay: 100,
-  lazyLoading: false,
-  onLeave: function (origin, destination, direction, trigger) {
-    if (origin.index == 0 && direction == 'down') {
-      capsule.className = `main-capsule toDown`
-      capsuleHead.className = `head open`
-      capsulePieces.className = `pieces out`
-      capsuleLines.style.strokeOpacity = `0`
-    }
-    if (origin.index == 1) {
-      if (direction === 'up') {
-        capsule.className = `main-capsule toUp`
-        capsuleHead.className = `head close`
-        capsulePieces.className = `pieces in`
-        setTimeout(() => (capsuleLines.style.strokeOpacity = `1`), 1000)
-      } else if (direction === 'down') {
-        capsule.className = `main-capsule out`
-        capsulePieces.className = `pieces in`
-        video.className = `middle-video in`
+if (document.body.clientWidth > 480) {
+  new fullpage('#fullpage', {
+    licenseKey: 'R8KHJ-2KN68-IZFN6-2PMWI-ZSBML',
+    scrollingSpeed: 700,
+    fitToSectionDelay: 100,
+    lazyLoading: false,
+    onLeave: function (origin, destination, direction, trigger) {
+      if (origin.index == 0 && direction == 'down') {
+        capsule.className = `main-capsule toDown`
+        capsuleHead.className = `head open`
+        capsulePieces.className = `pieces out`
+        capsuleLines.style.strokeOpacity = `0`
       }
-    }
-    if (origin.index === 2) {
-      if (direction === 'up') {
-        video.className = `middle-video out`
-        setTimeout(() => {
+      if (origin.index == 1) {
+        if (direction === 'up') {
+          capsule.className = `main-capsule toUp`
+          capsuleHead.className = `head close`
+          capsulePieces.className = `pieces in`
+          setTimeout(() => (capsuleLines.style.strokeOpacity = `1`), 1000)
+        } else if (direction === 'down') {
+          capsule.className = `main-capsule out`
+          capsulePieces.className = `pieces in`
+          video.className = `middle-video in`
+        }
+      }
+      if (origin.index === 2) {
+        if (direction === 'up') {
+          video.className = `middle-video out`
+          setTimeout(() => {
+            video.className = `middle-video`
+            capsule.className = `main-capsule toDown`
+            capsulePieces.className = `pieces out`
+          }, 800)
+        } else if (direction === 'down') {
+          video.className = `middle-video toDown`
+        }
+      }
+      if (origin.index === 3) {
+        if (direction === 'up') {
+          video.className = `middle-video toUp`
+        }
+      }
+      if (origin.index === 3) {
+        console.log(swiper.mousewheel.enabled)
+        if (direction === 'down') {
           video.className = `middle-video`
-          capsule.className = `main-capsule toDown`
-          capsulePieces.className = `pieces out`
-        }, 800)
-      } else if (direction === 'down') {
-        video.className = `middle-video toDown`
+          document.querySelectorAll('video').forEach((video) => video.play())
+        }
       }
-    }
-    if (origin.index === 3) {
-      if (direction === 'up') {
-        video.className = `middle-video toUp`
+      if (origin.index === 4) {
+        if (direction === 'up') {
+          if (activeVideoSlide === 0) {
+            video.className = `middle-video inBig`
+          } else return false
+        }
       }
-    }
-    if (origin.index === 3) {
-      console.log(swiper.mousewheel.enabled)
-      if (direction === 'down') {
-        video.className = `middle-video`
-        document.querySelectorAll('video').forEach((video) => video.play())
+      if (origin.index === 5) {
+        if (direction === 'up') {
+          swiper.slideTo(0, 800, false)
+          document.querySelectorAll('video').forEach((video) => video.play())
+        }
       }
-    }
-    if (origin.index === 4) {
-      if (direction === 'up') {
-        if (activeVideoSlide === 0) {
-          video.className = `middle-video inBig`
-        } else return false
-      }
-    }
-    if (origin.index === 5) {
-      if (direction === 'up') {
-        swiper.slideTo(0, 800, false)
-        document.querySelectorAll('video').forEach((video) => video.play())
-      }
-    }
-  },
-})
+    },
+  })
+}

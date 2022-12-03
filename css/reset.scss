@@ -9,6 +9,11 @@
 body {
   font-family: 'TT Firs Neue';
   overflow: hidden;
+
+  @media (max-width: 480px) {
+    overflow-y: scroll !important;
+    overflow-x: hidden !important;
+  }
 }
 
 ul {
