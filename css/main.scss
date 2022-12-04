@@ -1766,8 +1766,17 @@
         left: -200px;
         top: -50px;
 
+        @media (max-width: 480px) {
+          left: -75px;
+          top: -10px;
+        }
+
         img {
           animation-delay: 0.35s;
+
+          @media (max-width: 480px) {
+            max-width: 50px;
+          }
         }
       }
 
@@ -2022,14 +2031,51 @@
 
     .mobile-capsule {
       display: none;
-      position: absolute;
-      top: 50%;
-      left: 50%;
-      transform: translate(-50%, -50%);
+      position: relative;
+      width: fit-content;
+      transform: none !important;
+      top: unset !important;
+      left: unset !important;
 
-      .head {
+      .m-body {
+        object-fit: contain;
+        max-width: 100px;
+        width: 100px;
+        height: 150px;
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -30%) rotate(-14deg);
+      }
+
+      .m-head {
+        object-fit: contain;
+        margin-top: -70px;
+        z-index: 123;
+
+        transform-origin: bottom left;
+        transform: rotate(-155deg) translate(65px, 0);
+
         @media (max-width: 480px) {
-          margin-bottom: -120px;
+          width: 100px !important;
+          max-width: 100px !important;
+          height: 70px !important;
+        }
+      }
+
+      .pieces {
+        opacity: 1 !important;
+        transform: scale(0.7) !important;
+        top: -125px;
+
+        #p-13 {
+          max-width: 70px;
+          right: -250px !important;
+          left: unset !important;
+        }
+
+        img {
+          object-fit: contain !important;
         }
       }
 
@@ -2055,9 +2101,10 @@
       left: 0;
       top: 0;
       opacity: 1;
-      width: 250px !important;
-      height: 250px !important;
+      width: 100% !important;
+      height: 300px !important;
       margin: 0 auto;
+      overflow-y: hidden !important;
     }
 
     svg {

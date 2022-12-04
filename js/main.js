@@ -148,6 +148,7 @@ const cards = cardSlider.querySelectorAll('.slider-card')
 const cardsLength = cards.length
 
 if (document.body.clientWidth <= 480) {
+  document.querySelectorAll('video').forEach((video) => video.play())
   cards.forEach((card) => {
     card.addEventListener('click', (e) => slideByClick(e))
   })

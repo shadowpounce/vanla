@@ -2555,9 +2555,20 @@ button {
   left: -200px;
   top: -50px;
 }
+@media (max-width: 480px) {
+  #section-1 .container .middle #p-7 {
+    left: -75px;
+    top: -10px;
+  }
+}
 #section-1 .container .middle #p-7 img {
   -webkit-animation-delay: 0.35s;
           animation-delay: 0.35s;
+}
+@media (max-width: 480px) {
+  #section-1 .container .middle #p-7 img {
+    max-width: 50px;
+  }
 }
 #section-1 .container .middle #p-8 {
   bottom: -100px;
@@ -2825,15 +2836,53 @@ button {
 }
 #section-2 .middle .mobile-capsule {
   display: none;
+  position: relative;
+  width: -webkit-fit-content;
+  width: -moz-fit-content;
+  width: fit-content;
+  transform: none !important;
+  top: unset !important;
+  left: unset !important;
+}
+#section-2 .middle .mobile-capsule .m-body {
+  -o-object-fit: contain;
+     object-fit: contain;
+  max-width: 100px;
+  width: 100px;
+  height: 150px;
   position: absolute;
   top: 50%;
   left: 50%;
-  transform: translate(-50%, -50%);
+  transform: translate(-50%, -30%) rotate(-14deg);
+}
+#section-2 .middle .mobile-capsule .m-head {
+  -o-object-fit: contain;
+     object-fit: contain;
+  margin-top: -70px;
+  z-index: 123;
+  transform-origin: bottom left;
+  transform: rotate(-155deg) translate(65px, 0);
 }
 @media (max-width: 480px) {
-  #section-2 .middle .mobile-capsule .head {
-    margin-bottom: -120px;
+  #section-2 .middle .mobile-capsule .m-head {
+    width: 100px !important;
+    max-width: 100px !important;
+    height: 70px !important;
   }
+}
+#section-2 .middle .mobile-capsule .pieces {
+  opacity: 1 !important;
+  transform: scale(0.7) !important;
+  top: -125px;
+}
+#section-2 .middle .mobile-capsule .pieces #p-13 {
+  max-width: 70px;
+  right: -250px !important;
+  left: unset !important;
+}
+#section-2 .middle .mobile-capsule .pieces img {
+  -o-object-fit: contain !important;
+     object-fit: contain !important;
 }
 @media (max-width: 480px) {
   #section-2 .middle .mobile-capsule {
@@ -2860,9 +2909,10 @@ button {
     left: 0;
     top: 0;
     opacity: 1;
-    width: 250px !important;
-    height: 250px !important;
+    width: 100% !important;
+    height: 300px !important;
     margin: 0 auto;
+    overflow-y: hidden !important;
   }
 }
 @media (max-width: 1750px) {
