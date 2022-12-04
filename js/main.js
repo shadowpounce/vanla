@@ -34,6 +34,7 @@ const capsuleHead = capsule.querySelector('.head')
 const capsulePieces = capsule.querySelector('.pieces')
 const capsuleLines = capsule.querySelector('.capsuleLines path')
 const middleWrapper = document.querySelector('.middle-wrapper')
+const headingSection = document.querySelector('.heading-section')
 const pieces = middleWrapper.querySelectorAll('.piece')
 const videoCarousel = document.querySelector(`.carousel`)
 let currentScrollY = 0
@@ -56,10 +57,12 @@ function setMobileMenu(state) {
     closeMenuIcon.className = `close-menu active`
     document.body.style.overflowY = `hidden`
     mobileMenuIcon.className = `mobile-menu-icon hide`
+    headingSection.style.opacity = `0`
   } else {
     mobileMenu.className = `mobile-menu`
     closeMenuIcon.className = `close-menu out`
     document.body.style.overflowY = `scroll`
+    headingSection.style.opacity = `1`
     setTimeout(() => {
       cartBtn.className = `btn cart-btn white-btn`
       mobileMenuIcon.className = `mobile-menu-icon`
@@ -147,10 +150,29 @@ const cardSliderWrapper = cardSlider.querySelector('.cards')
 const cards = cardSlider.querySelectorAll('.slider-card')
 const cardsLength = cards.length
 
+const videoPlaceFirst = document.querySelector(`#section-3 .middle`)
+
 if (document.body.clientWidth <= 480) {
   document.querySelectorAll('video').forEach((video) => video.play())
   cards.forEach((card) => {
     card.addEventListener('click', (e) => slideByClick(e))
+  })
+
+  window.addEventListener('scroll', () => {
+    currentScrollY = window.pageYOffset
+
+    if (
+      currentScrollY + 500 >= section3.offsetTop &&
+      currentScrollY < section3.offsetTop + section3.clientHeight
+    ) {
+      section3.className = `section active`
+      section4.className = `section`
+    } else if (currentScrollY + 500 >= section4.offsetTop) {
+      section3.className = `section`
+      section4.className = `section active`
+    } else if (currentScrollY > section4.offsetTop + section4.clientHeight) {
+      section4.className = `section`
+    }
   })
 
   let xStart = 0
@@ -494,14 +516,5 @@ if (document.body.clientWidth > 480) {
         }
       }
     },
-  })
-} else {
-  const swiperSections = new Swiper('.mobile-sections', {
-    // Optional parameters
-    direction: 'vertical',
-    slidesPerView: 1,
-    scrollbar: false,
-    speed: 700,
-    spaceBetween: 30,
   })
 }

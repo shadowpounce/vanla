@@ -11,14 +11,9 @@ body {
   overflow: hidden;
 
   @media (max-width: 480px) {
-    overflow-y: scroll !important;
-    overflow-x: hidden !important;
-    overflow: scroll !important;
+    overflow-y: scroll;
+    overflow-x: hidden;
   }
-}
-
-.fp-viewing-0 {
-  overflow: scroll !important;
 }
 
 ul {
