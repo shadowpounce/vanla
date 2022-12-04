@@ -13,9 +13,14 @@ body {
 }
 @media (max-width: 480px) {
   body {
-    overflow-y: scroll;
-    overflow-x: hidden;
+    overflow-y: scroll !important;
+    overflow-x: hidden !important;
+    overflow: scroll !important;
   }
+}
+
+.fp-viewing-0 {
+  overflow: scroll !important;
 }
 
 ul {
@@ -2135,7 +2140,6 @@ button {
 @media (max-width: 480px) {
   #section-1 .heading-section {
     margin: auto 0;
-    overflow: visible !important;
   }
 }
 #section-1 .bottom-wave {
@@ -2234,8 +2238,7 @@ button {
   #section-1 .mouse {
     width: 36px;
     height: 36px;
-    top: 30px !important;
-    display: none;
+    top: -20px !important;
   }
 }
 #section-1 .container {
@@ -2252,7 +2255,7 @@ button {
 }
 @media (max-width: 480px) {
   #section-1 .container {
-    padding: 30px 20px 0;
+    padding: 30px 20px;
     transform: translate(0);
     position: static;
     display: flex;
@@ -2262,7 +2265,7 @@ button {
 }
 @media (max-width: 400px) {
   #section-1 .container {
-    padding: 60px 20px 0;
+    padding: 60px 20px;
   }
 }
 #section-1 .container .mobile-video {
@@ -2880,6 +2883,10 @@ button {
   right: -250px !important;
   left: unset !important;
 }
+#section-2 .middle .mobile-capsule .pieces #p-7 {
+  max-width: 100px;
+  top: -25px;
+}
 #section-2 .middle .mobile-capsule .pieces img {
   -o-object-fit: contain !important;
      object-fit: contain !important;
@@ -3357,6 +3364,7 @@ button {
 @media (max-width: 480px) {
   #section-3 {
     height: 100vh;
+    display: none;
   }
 }
 #section-3.fp-completely h1.left {
@@ -3480,12 +3488,27 @@ button {
   }
 }
 
+.mobile-sections {
+  overflow: hidden;
+  position: relative;
+}
+.mobile-sections section {
+  display: block !important;
+  height: 100vh !important;
+  min-height: unset !important;
+}
+
 #section-4 {
   background: #000;
   min-height: 100vh;
   height: 100%;
   display: flex;
   align-items: center;
+}
+@media (max-width: 480px) {
+  #section-4 {
+    display: none;
+  }
 }
 #section-4.fp-completely h1.left {
   -webkit-animation: toStatic 1s forwards ease;

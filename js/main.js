@@ -495,4 +495,13 @@ if (document.body.clientWidth > 480) {
       }
     },
   })
+} else {
+  const swiperSections = new Swiper('.mobile-sections', {
+    // Optional parameters
+    direction: 'vertical',
+    slidesPerView: 1,
+    scrollbar: false,
+    speed: 700,
+    spaceBetween: 30,
+  })
 }
