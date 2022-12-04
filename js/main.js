@@ -38,6 +38,36 @@ const pieces = middleWrapper.querySelectorAll('.piece')
 const videoCarousel = document.querySelector(`.carousel`)
 let currentScrollY = 0
 
+const mobileMenuIcon = document.querySelector('.mobile-menu-icon')
+const mobileMenu = document.querySelector('.mobile-menu')
+const closeMenuIcon = document.querySelector('.close-menu')
+const cartBtn = document.querySelector('.cart-btn')
+let isMobileMenuOpen = false
+
+mobileMenuIcon.addEventListener('click', () => setMobileMenu(true))
+
+closeMenuIcon.addEventListener('click', () => setMobileMenu(false))
+
+function setMobileMenu(state) {
+  if (state) {
+    mobileMenu.className = `mobile-menu opened`
+    isMobileMenuOpen = true
+    cartBtn.className = `btn cart-btn white-btn hide`
+    closeMenuIcon.className = `close-menu active`
+    document.body.style.overflowY = `hidden`
+    mobileMenuIcon.className = `mobile-menu-icon hide`
+  } else {
+    mobileMenu.className = `mobile-menu`
+    closeMenuIcon.className = `close-menu out`
+    document.body.style.overflowY = `scroll`
+    setTimeout(() => {
+      cartBtn.className = `btn cart-btn white-btn`
+      mobileMenuIcon.className = `mobile-menu-icon`
+    }, 500)
+    isMobileMenuOpen = false
+  }
+}
+
 // section 2 dropdown
 const dropdown = document.querySelector('.dropdown')
 const dropdownItems = dropdown.querySelectorAll('li')
@@ -120,6 +150,25 @@ const cardsLength = cards.length
 if (document.body.clientWidth <= 480) {
   cards.forEach((card) => {
     card.addEventListener('click', (e) => slideByClick(e))
+  })
+
+  let xStart = 0
+  let xEnd = 0
+
+  cards.forEach((card) => {
+    card.addEventListener('touchstart', (e) => {
+      xStart = e.touches[0].clientX
+      console.log(xStart)
+    })
+    card.addEventListener('touchend', (e) => {
+      xEnd = e.changedTouches[0].clientX
+
+      if (xStart > xEnd) {
+        slideNext()
+      } else if (xStart < xEnd) {
+        slidePrev()
+      }
+    })
   })
 }
 

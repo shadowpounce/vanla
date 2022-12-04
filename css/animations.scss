@@ -316,6 +316,20 @@
   }
 }
 
+@keyframes hide {
+  to {
+    display: none;
+    opacity: 0;
+  }
+}
+
+@keyframes show {
+  to {
+    display: block;
+    opacity: 1;
+  }
+}
+
 @keyframes rotatingSlider {
   to {
     transform: rotate(360deg);
