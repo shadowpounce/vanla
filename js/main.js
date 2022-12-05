@@ -136,7 +136,6 @@ const cards = cardSlider.querySelectorAll('.slider-card')
 const cardsLength = cards.length
 
 if (document.body.clientWidth <= 480) {
-  document.querySelectorAll('video').forEach((video) => video.play())
   cards.forEach((card) => {
     card.addEventListener('click', (e) => slideByClick(e))
   })
@@ -150,15 +149,21 @@ if (document.body.clientWidth <= 480) {
     ) {
       section3.className = `section active`
       section4.className = `section`
+      section3.querySelector('video').play()
+      section4.querySelector('video').pause()
     } else if (currentScrollY + 500 >= section4.offsetTop) {
       section3.className = `section`
       section4.className = `section active`
+      section4.querySelector('video').play()
+      section3.querySelector('video').pause()
     } else if (
       currentScrollY > section4.offsetTop + section4.clientHeight ||
       currentScrollY + 500 < section3.offsetTop
     ) {
       section3.className = `section`
       section4.className = `section`
+      section3.querySelector('video').pause()
+      section4.querySelector('video').pause()
     }
   })
 
