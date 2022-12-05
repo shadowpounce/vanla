@@ -150,8 +150,6 @@ const cardSliderWrapper = cardSlider.querySelector('.cards')
 const cards = cardSlider.querySelectorAll('.slider-card')
 const cardsLength = cards.length
 
-const videoPlaceFirst = document.querySelector(`#section-3 .middle`)
-
 if (document.body.clientWidth <= 480) {
   document.querySelectorAll('video').forEach((video) => video.play())
   cards.forEach((card) => {
@@ -181,7 +179,6 @@ if (document.body.clientWidth <= 480) {
   cards.forEach((card) => {
     card.addEventListener('touchstart', (e) => {
       xStart = e.touches[0].clientX
-      console.log(xStart)
     })
     card.addEventListener('touchend', (e) => {
       xEnd = e.changedTouches[0].clientX
@@ -214,8 +211,6 @@ function slideByClick(e) {
   )
 
   currentSlideIndex = Number(dataID)
-  console.log(dataID)
-  console.log(cardsLength)
 
   if (currentSlideIndex === cardsLength) {
     target.className = `card slider-card`
@@ -343,7 +338,6 @@ swiper.on('slideChange', () => {
   setTimeout(() => {
     activeVideoSlide = swiper.activeIndex
   }, 500)
-  console.log(activeVideoSlide)
 })
 
 const cardCarouselButtonPrev = document.querySelector('.car-prev')
@@ -351,6 +345,17 @@ const cardCarouselButtonNext = document.querySelector('.car-next')
 const cardCarousel = document.querySelector('.card-carousel')
 const cardPanel = document.querySelector('.slider-panel')
 const cardTitle = cardPanel.querySelector('.card-title')
+const carouselCards = cardCarousel.querySelectorAll('.card')
+
+carouselCards.forEach((card) =>
+  card.addEventListener('click', (e) => slideCarouselByClick(e))
+)
+
+function slideCarouselByClick(e) {
+  const deg = e.target.dataset.deg
+
+  cardCarousel.style.transform = `translate(-50%, 0) rotate(${deg}deg)`
+}
 
 let currentCarouselSlide = 0
 
@@ -430,8 +435,6 @@ cardCarouselButtonPrev.addEventListener('click', () =>
   slideNextCarousel('prev')
 )
 
-console.log(cardCarouselButtonNext)
-
 function slideNextCarousel(direction) {
   if (direction === 'next') {
     if (currentCarouselSlide === -24) {
@@ -449,8 +452,9 @@ function slideNextCarousel(direction) {
     updateCardInfo(currentCarouselSlide)
   }
 
-  cardCarousel.style.transform = `rotate(${currentCarouselSlide * 15}deg)`
-  console.log(currentCarouselSlide)
+  cardCarousel.style.transform = `translate(-50%, 0) rotate(${
+    currentCarouselSlide * 20
+  }deg)`
 }
 
 if (document.body.clientWidth > 480) {
@@ -496,7 +500,6 @@ if (document.body.clientWidth > 480) {
         }
       }
       if (origin.index === 3) {
-        console.log(swiper.mousewheel.enabled)
         if (direction === 'down') {
           video.className = `middle-video`
           document.querySelectorAll('video').forEach((video) => video.play())
