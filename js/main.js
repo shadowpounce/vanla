@@ -160,12 +160,12 @@ if (document.body.clientWidth <= 480) {
     currentScrollY = window.pageYOffset
 
     if (
-      currentScrollY + 500 >= section3.offsetTop &&
+      currentScrollY >= section3.offsetTop &&
       currentScrollY < section3.offsetTop + section3.clientHeight
     ) {
       section3.className = `section active`
       section4.className = `section`
-    } else if (currentScrollY + 500 >= section4.offsetTop) {
+    } else if (currentScrollY >= section4.offsetTop) {
       section3.className = `section`
       section4.className = `section active`
     } else if (currentScrollY > section4.offsetTop + section4.clientHeight) {
