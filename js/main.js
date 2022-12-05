@@ -14,19 +14,8 @@ const vitaminesData = [
   'Magnesium is an important mineral for your body. It is essential to your heart, metabolic, and bone health. ',
 ]
 
-const section1 = document.querySelector('#section-1')
-const section2 = document.querySelector('#section-2')
 const section3 = document.querySelector('#section-3')
 const section4 = document.querySelector('#section-4')
-const section5 = document.querySelector('#section-5')
-const section6 = document.querySelector('#section-6')
-const section7 = document.querySelector('#section-7')
-const section8 = document.querySelector('#section-8')
-const section9 = document.querySelector('#section-9')
-const section10 = document.querySelector('#section-10')
-const section11 = document.querySelector('#section-11')
-const section12 = document.querySelector('#section-12')
-const section13 = document.querySelector('#section-13')
 const video = document.querySelector('.middle-video')
 const capsule = document.querySelector('.main-capsule')
 const mobileCapsule = document.querySelector('.mobile-capsule')
@@ -37,13 +26,11 @@ const middleWrapper = document.querySelector('.middle-wrapper')
 const headingSection = document.querySelector('.heading-section')
 const pieces = middleWrapper.querySelectorAll('.piece')
 const videoCarousel = document.querySelector(`.carousel`)
-let currentScrollY = 0
-
 const mobileMenuIcon = document.querySelector('.mobile-menu-icon')
 const mobileMenu = document.querySelector('.mobile-menu')
 const closeMenuIcon = document.querySelector('.close-menu')
 const cartBtn = document.querySelector('.cart-btn')
-let isMobileMenuOpen = false
+let currentScrollY = 0
 
 mobileMenuIcon.addEventListener('click', () => setMobileMenu(true))
 
@@ -52,7 +39,6 @@ closeMenuIcon.addEventListener('click', () => setMobileMenu(false))
 function setMobileMenu(state) {
   if (state) {
     mobileMenu.className = `mobile-menu opened`
-    isMobileMenuOpen = true
     cartBtn.className = `btn cart-btn white-btn hide`
     closeMenuIcon.className = `close-menu active`
     document.body.style.overflowY = `hidden`
@@ -67,7 +53,6 @@ function setMobileMenu(state) {
       cartBtn.className = `btn cart-btn white-btn`
       mobileMenuIcon.className = `mobile-menu-icon`
     }, 500)
-    isMobileMenuOpen = false
   }
 }
 
@@ -160,12 +145,12 @@ if (document.body.clientWidth <= 480) {
     currentScrollY = window.pageYOffset
 
     if (
-      currentScrollY >= section3.offsetTop &&
+      currentScrollY + 200 >= section3.offsetTop &&
       currentScrollY < section3.offsetTop + section3.clientHeight
     ) {
       section3.className = `section active`
       section4.className = `section`
-    } else if (currentScrollY >= section4.offsetTop) {
+    } else if (currentScrollY + 200 >= section4.offsetTop) {
       section3.className = `section`
       section4.className = `section active`
     } else if (currentScrollY > section4.offsetTop + section4.clientHeight) {
