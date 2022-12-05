@@ -16,6 +16,7 @@ const vitaminesData = [
 
 const section3 = document.querySelector('#section-3')
 const section4 = document.querySelector('#section-4')
+const section5 = document.querySelector('#section-5')
 const video = document.querySelector('.middle-video')
 const capsule = document.querySelector('.main-capsule')
 const mobileCapsule = document.querySelector('.mobile-capsule')
@@ -160,6 +161,7 @@ if (document.body.clientWidth <= 480) {
       currentScrollY > section4.offsetTop + section4.clientHeight ||
       currentScrollY + 500 < section3.offsetTop
     ) {
+      section5.querySelectorAll('video').forEach((video) => video.play())
       section3.className = `section`
       section4.className = `section`
       section3.querySelector('video').pause()
