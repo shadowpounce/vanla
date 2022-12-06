@@ -152,7 +152,7 @@ if (document.body.clientWidth <= 480) {
       section4.className = `section`
       section3.querySelector('video').play()
       section4.querySelector('video').pause()
-    } else if (currentScrollY + 500 >= section4.offsetTop) {
+    } else if (currentScrollY + 1000 >= section4.offsetTop) {
       section3.className = `section`
       section4.className = `section active`
       section4.querySelector('video').play()
