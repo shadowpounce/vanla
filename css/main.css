@@ -4819,6 +4819,11 @@ button {
           user-select: none;
   pointer-events: none;
 }
+@media (max-width: 480px) {
+  #section-10 .slider-wrapper .card-carousel-wrapper .card-carousel .line .card img {
+    max-width: 100px;
+  }
+}
 @media (max-width: 1750px) {
   #section-10 .slider-wrapper .card-carousel-wrapper .card-carousel .line .card {
     width: 275px;
