@@ -2894,8 +2894,12 @@
     }
 
     @media (max-width: 480px) {
-      left: -25px;
+      left: -10%;
       opacity: 0;
+    }
+
+    @media (max-width: 440px) {
+      left: -15%;
     }
 
     @media (max-width: 400px) {
@@ -2912,8 +2916,16 @@
     }
 
     @media (max-width: 480px) {
-      right: -300px;
+      right: -68%;
       opacity: 0;
+    }
+
+    @media (max-width: 460px) {
+      right: -75%;
+    }
+
+    @media (max-width: 440px) {
+      right: -82%;
     }
 
     @media (max-width: 400px) {

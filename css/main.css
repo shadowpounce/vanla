@@ -3691,8 +3691,13 @@ button {
 }
 @media (max-width: 480px) {
   #section-4 h1.left {
-    left: -25px;
+    left: -10%;
     opacity: 0;
+  }
+}
+@media (max-width: 440px) {
+  #section-4 h1.left {
+    left: -15%;
   }
 }
 @media (max-width: 400px) {
@@ -3711,8 +3716,18 @@ button {
 }
 @media (max-width: 480px) {
   #section-4 h1.right {
-    right: -300px;
+    right: -68%;
     opacity: 0;
+  }
+}
+@media (max-width: 460px) {
+  #section-4 h1.right {
+    right: -75%;
+  }
+}
+@media (max-width: 440px) {
+  #section-4 h1.right {
+    right: -82%;
   }
 }
 @media (max-width: 400px) {
