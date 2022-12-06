@@ -1960,7 +1960,7 @@ button {
   bottom: 0;
   right: 0;
   left: 0;
-  background-image: url("../assets/images/bg.webp");
+  background-image: url("../assets/images/bg.jpg");
   background-position: center;
   background-size: cover;
   z-index: -1;
@@ -2129,7 +2129,7 @@ button {
   min-height: 100vh;
   height: 100%;
   pointer-events: all;
-  background-image: url("../assets/images/bg.webp");
+  background-image: url("../assets/images/bg.jpg");
   background-position: center;
   background-size: cover;
   background-repeat: no-repeat;
@@ -5598,7 +5598,7 @@ button {
 }
 
 #section-13 {
-  background-image: url("../assets/images/learn-more-bg.webp");
+  background-image: url("../assets/images/learn-more-bg.jpg");
   background-position: center;
   background-size: cover;
   background-repeat: no-repeat;
