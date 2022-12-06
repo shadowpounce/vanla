@@ -3254,7 +3254,7 @@
     top: 100px;
     left: 0;
     right: 0;
-    bottom: -5px;
+    bottom: -100px;
     background-color: #bfa291;
     clip-path: url('#clip-4');
 
@@ -3653,6 +3653,15 @@
             left: 50%;
             transform: translate(-50%, 0);
             top: 0;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+
+            img {
+              -webkit-user-drag: none;
+              user-select: none;
+              pointer-events: none;
+            }
 
             @media (max-width: 1750px) {
               width: 275px;
@@ -3667,6 +3676,10 @@
             &:last-child {
               top: unset !important;
               bottom: 0;
+
+              img {
+                transform: rotate(-180deg);
+              }
             }
           }
         }
@@ -3817,7 +3830,7 @@
 
       .btn-transparent {
         margin: 0 auto;
-        transform: translate(0, -30px);
+        transform: translate(0, 50px);
         opacity: 0;
         animation-delay: 0.35s;
 
@@ -4217,83 +4230,226 @@
   background: #fff4ee;
   color: #000000;
   position: relative;
+  overflow: hidden;
 
-  .wrapper {
-    position: absolute;
-    top: 40%;
-    left: 25%;
+  > div {
+    height: 100%;
+  }
 
-    @media (max-width: 480px) {
-      left: 0;
+  &.fp-completely {
+    .tab-1 {
+      animation: tab1 1.2s forwards linear;
+    }
+
+    .tab-2 {
+      animation: tab1 1.2s forwards linear 0.2s;
+    }
+
+    .tab-3 {
+      animation: tab1 1.2s forwards linear 0.125s;
+    }
+
+    .tab-4 {
+      animation: tab2 1.4s forwards linear 0.125s;
+    }
+
+    .tab-5 {
+      animation: tab1 1s forwards linear 0.3s;
+    }
+
+    .tab-6 {
+      animation: tab3 1.5s forwards linear 0.5s;
+    }
+
+    .tab-7 {
+      animation: tab4 1.2s forwards linear 0.45s;
+    }
+
+    .tab-8 {
+      animation: tab4 1.2s forwards linear 0.46s;
+    }
+
+    .tab-9 {
+      animation: tab5 1.2s forwards linear 0.8s;
+    }
+
+    .tab-10 {
+      animation: tab6 1.5s forwards linear 0.6s;
     }
   }
 
+  .wrapper {
+    width: 70%;
+  }
+
   .tab {
-    padding: 10px 25px;
+    padding: 15px 34px;
     background: #a6a998;
     border-radius: 50px;
     width: fit-content;
     position: absolute;
 
+    @media (max-width: 1400px) {
+      padding: 12px 25px;
+    }
+
     &.tab-1 {
-      transform: rotate(-12deg);
-      top: -50%;
-      left: 35%;
-      animation: p1 2s forwards ease;
+      bottom: 100%;
+      transform-origin: right bottom;
+      background: #a6a998;
+      left: 25%;
+
+      @media (max-width: 1660px) {
+        left: 20%;
+      }
+
+      @media (max-width: 1400px) {
+        left: 22%;
+      }
     }
 
     &.tab-2 {
-      background: #fccd80;
+      bottom: 100%;
+      background: #f2b95a;
+      left: 52%;
     }
 
     &.tab-3 {
-      background: #fccd80;
+      bottom: 100%;
+      transform-origin: right bottom;
+      background: #edc997;
+      right: 15%;
+
+      @media (max-width: 1660px) {
+        right: 10%;
+      }
     }
 
     &.tab-4 {
-      background: #fccd80;
+      bottom: 100%;
+      background: #d9d9d9;
+      transform-origin: right bottom;
+      right: 14.8%;
+
+      @media (max-width: 1660px) {
+        right: 9.8%;
+      }
     }
 
     &.tab-5 {
-      background: #fccd80;
+      bottom: 100%;
+      transform-origin: right bottom;
+      left: 67%;
+      background: #a6a998;
     }
 
     &.tab-6 {
-      background: #fccd80;
+      bottom: 100%;
+
+      background: #c5a28e;
+      transform-origin: left bottom;
+      left: 44%;
+
+      @media (max-width: 1660px) {
+        left: 42%;
+      }
     }
 
     &.tab-7 {
-      background: #fccd80;
+      bottom: 100%;
+      background: #c5eca7;
+      left: 35%;
+
+      @media (max-width: 1400px) {
+        left: 36%;
+      }
     }
 
     &.tab-8 {
-      background: #fccd80;
+      bottom: 100%;
+      background: #c5eca7;
+      right: 36%;
+
+      @media (max-width: 1660px) {
+        right: 22.5%;
+      }
     }
 
     &.tab-9 {
-      background: #fccd80;
+      bottom: 100%;
+      background: #ebe2df;
+      left: 40.8%;
+
+      @media (max-width: 1600px) {
+        left: 54%;
+      }
     }
 
     &.tab-10 {
-      background: #fccd80;
+      bottom: 100%;
+      transform-origin: right bottom;
+      background: #edc997;
+      left: 24%;
+
+      @media (max-width: 1660px) {
+        left: 21.5%;
+      }
+
+      @media (max-width: 1400px) {
+        left: 22.3%;
+      }
     }
 
     &.tab-11 {
-      background: #fccd80;
+      background: #a6a998;
+      top: -50%;
+      left: 35%;
+      transform: rotate(-25deg);
+      transform-origin: left bottom;
+      transition: all 1s linear 0.5s;
+
+      @media (max-width: 1600px) {
+        left: 31%;
+      }
+
+      @media (max-width: 1400px) {
+        left: 30%;
+      }
     }
 
     &.tab-12 {
-      background: #fccd80;
+      background: #a6a998;
+      top: -50%;
+      left: 55%;
+      transform: rotate(-25deg);
+      transform-origin: left bottom;
+      transition: all 0.5s linear 0.3s;
+
+      @media (max-width: 1600px) {
+        left: 50%;
+      }
+
+      &.grind {
+        animation: grinding 1s forwards linear;
+      }
     }
 
     &.tab-13 {
       background: #fccd80;
+      top: -50%;
+      left: 70%;
+      transform-origin: center;
+      transition: all 0.5s linear 0.5s;
+
+      @media (max-width: 1400px) {
+        left: 72%;
+      }
     }
 
     font-family: 'Plus Jakarta Sans';
-    font-weight: 400;
-    font-size: 24px;
-    line-height: 31px;
+    font-weight: 500;
+    font-size: 18px;
+    line-height: 24px;
     color: #000;
   }
 
@@ -4320,6 +4476,9 @@
   .container {
     min-height: 100vh;
     height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
 
     @media (max-width: 480px) {
       padding: 0 20px;
@@ -4333,6 +4492,30 @@
       transform: translate(30px);
       opacity: 0;
 
+      @media (max-width: 1400px) {
+        font-size: 66px;
+        line-height: 100%;
+      }
+
+      span {
+        display: inline-flex;
+        align-items: center;
+        gap: 15px;
+      }
+
+      span:first-child {
+        align-items: start;
+
+        @media (max-width: 1400px) {
+          transform: translate(0, 24px);
+        }
+      }
+
+      .union {
+        position: relative;
+        top: -30px;
+      }
+
       @media (max-width: 480px) {
         font-size: 40px;
         line-height: 52px;
@@ -4341,43 +4524,25 @@
       }
     }
 
-    .row {
-      display: flex;
-      align-items: center;
-      position: relative;
+    .union {
+      opacity: 0;
+      transform: translate(-50px, 0);
 
-      .union {
-        position: absolute;
-        left: -70px;
-        top: -50px;
-        opacity: 0;
-        transform: translate(-50px, 0);
-
-        @media (max-width: 480px) {
-          left: 0;
-          opacity: 1;
-          transform: none;
-          max-width: 50px;
-          top: 0;
-          left: 15%;
-        }
+      @media (max-width: 480px) {
+        opacity: 1;
+        transform: none;
+        max-width: 50px;
       }
+    }
 
-      .people {
-        position: absolute;
-        top: 50%;
-        right: -150px;
-        opacity: 0;
-        transform: translate(50px, 0) rotate(7deg);
+    .people {
+      opacity: 0;
+      transform: translate(50px, 0) rotate(7deg);
 
-        @media (max-width: 480px) {
-          right: 10%;
-          opacity: 1;
-          transform: none;
-          max-width: 95px;
-          bottom: 0;
-          top: unset !important;
-        }
+      @media (max-width: 480px) {
+        opacity: 1;
+        transform: none;
+        max-width: 95px;
       }
     }
   }
@@ -4665,6 +4830,7 @@
         display: flex;
         flex-direction: column;
         gap: 80px;
+        flex: 1;
 
         @media (max-width: 480px) {
           gap: 30px;
@@ -4702,7 +4868,7 @@
       .review {
         background: #fff4ee;
         padding: 25px 60px;
-        flex: 1;
+        width: fit-content;
         height: fit-content;
         transform: perspective(400px) rotateX(-20deg);
         transform-style: preserve-3d;
@@ -4968,11 +5134,11 @@
       }
 
       #p-1 {
-        background: #a6a998;
+        background: #b99868;
       }
 
       #p-2 {
-        background: #a28fcf;
+        background: #bfa291;
       }
 
       #p-3 {

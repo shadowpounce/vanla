@@ -350,6 +350,8 @@ carouselCards.forEach((card) =>
 function slideCarouselByClick(e) {
   const deg = e.target.dataset.deg
 
+  cardTitle.innerHTML = e.target.dataset.name
+
   cardCarousel.style.transform = `translate(-50%, 0) rotate(${deg}deg)`
 }
 
@@ -453,12 +455,51 @@ function slideNextCarousel(direction) {
   }deg)`
 }
 
+const tab11 = document.querySelector('.tab-11')
+const tab12 = document.querySelector('.tab-12')
+const tab13 = document.querySelector('.tab-13')
+
 if (document.body.clientWidth > 480) {
   new fullpage('#fullpage', {
     licenseKey: 'R8KHJ-2KN68-IZFN6-2PMWI-ZSBML',
     scrollingSpeed: 700,
     fitToSectionDelay: 100,
     lazyLoading: false,
+    afterLoad: function (origin, destination, direction, trigger) {
+      if (origin.index === 9) {
+        document.body.clientWidth > 1400
+          ? (tab11.style.top = `${
+              document.querySelector('.screen-11-title').offsetTop - 20
+            }px`)
+          : (tab11.style.top = `${
+              document.querySelector('.screen-11-title').offsetTop - 10
+            }px`)
+        setTimeout(() => (tab11.style.transform = `rotate(-8deg)`), 100)
+
+        document.body.clientWidth > 1400
+          ? (tab12.style.top = `${
+              document.querySelector('.screen-11-title').offsetTop - 16
+            }px`)
+          : (tab12.style.top = `${
+              document.querySelector('.screen-11-title').offsetTop - 8.5
+            }px`)
+        tab12.style.transform = `rotate(0deg)`
+        setTimeout(() => {
+          tab12.style.transform = `translate(-15px, 0)`
+        }, 370)
+
+        document.body.clientWidth > 1400
+          ? (tab13.style.top = `${
+              document.querySelector('.screen-11-title').offsetTop - 35
+            }px`)
+          : (tab13.style.top = `${
+              document.querySelector('.screen-11-title').offsetTop - 20
+            }px`)
+        setTimeout(() => {
+          tab13.style.transform = `rotate(-8deg) translate(-2px, 0)`
+        }, 300)
+      }
+    },
     onLeave: function (origin, destination, direction, trigger) {
       if (origin.index == 0 && direction == 'down') {
         capsule.className = `main-capsule toDown`
