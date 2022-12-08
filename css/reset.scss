@@ -30,6 +30,10 @@ img {
 
 a {
   text-decoration: none;
+
+  &:visited {
+    color: inherit;
+  }
 }
 
 button {

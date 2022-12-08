@@ -17,6 +17,7 @@ const vitaminesData = [
 const section3 = document.querySelector('#section-3')
 const section4 = document.querySelector('#section-4')
 const section5 = document.querySelector('#section-5')
+const section10 = document.querySelector('#section-10')
 const video = document.querySelector('.middle-video')
 const capsule = document.querySelector('.main-capsule')
 const mobileCapsule = document.querySelector('.mobile-capsule')
@@ -357,74 +358,6 @@ function slideCarouselByClick(e) {
 
 let currentCarouselSlide = 0
 
-function updateCardInfo(id) {
-  if (
-    id === 0 ||
-    id === 5 ||
-    id === -5 ||
-    id === 10 ||
-    id === -10 ||
-    id === 15 ||
-    id === -15 ||
-    id === 20 ||
-    id === -20
-  ) {
-    cardTitle.innerHTML = 'GOLD STANDART'
-  } else if (
-    id === 1 ||
-    id === -1 ||
-    id === 6 ||
-    id === -6 ||
-    id === 11 ||
-    id === -11 ||
-    id === -16 ||
-    id === 16 ||
-    id === -21 ||
-    id === 21
-  ) {
-    cardTitle.innerHTML = '3 MONTH'
-  } else if (
-    id === 2 ||
-    id === -2 ||
-    id === 7 ||
-    id === -7 ||
-    id === 12 ||
-    id === -12 ||
-    id === 17 ||
-    id === -17 ||
-    id === 22 ||
-    id === -22
-  ) {
-    cardTitle.innerHTML = 'TRAVEL SIZE'
-  } else if (
-    id === 3 ||
-    id === -3 ||
-    id === 8 ||
-    id === -8 ||
-    id === 13 ||
-    id === -13 ||
-    id === 18 ||
-    id === -18 ||
-    id === -23 ||
-    id === 23
-  ) {
-    cardTitle.innerHTML = 'BUNDLE'
-  } else if (
-    id === 4 ||
-    id === -4 ||
-    id === 9 ||
-    id === -9 ||
-    id === -14 ||
-    id === 14 ||
-    id === -19 ||
-    id === 19 ||
-    id === 24 ||
-    id === -24
-  ) {
-    cardTitle.innerHTML = 'UNISEX HOODIE'
-  }
-}
-
 cardCarouselButtonNext.addEventListener('click', () =>
   slideNextCarousel('next')
 )
@@ -437,17 +370,13 @@ function slideNextCarousel(direction) {
   if (direction === 'next') {
     if (currentCarouselSlide === -24) {
       currentCarouselSlide = 0
-      updateCardInfo(currentCarouselSlide)
     }
     currentCarouselSlide -= 1
-    updateCardInfo(currentCarouselSlide)
   } else {
     if (currentCarouselSlide === 24) {
       currentCarouselSlide = 0
-      updateCardInfo(currentCarouselSlide)
     }
     currentCarouselSlide += 1
-    updateCardInfo(currentCarouselSlide)
   }
 
   cardCarousel.style.transform = `translate(-50%, 0) rotate(${
@@ -459,47 +388,46 @@ const tab11 = document.querySelector('.tab-11')
 const tab12 = document.querySelector('.tab-12')
 const tab13 = document.querySelector('.tab-13')
 
+function fallingTabs() {
+  document.body.clientWidth > 1400
+    ? (tab11.style.top = `${
+        document.querySelector('.screen-11-title').offsetTop - 20
+      }px`)
+    : (tab11.style.top = `${
+        document.querySelector('.screen-11-title').offsetTop - 10
+      }px`)
+  setTimeout(() => (tab11.style.transform = `rotate(-8deg)`), 100)
+
+  document.body.clientWidth > 1400
+    ? (tab12.style.top = `${
+        document.querySelector('.screen-11-title').offsetTop - 16
+      }px`)
+    : (tab12.style.top = `${
+        document.querySelector('.screen-11-title').offsetTop - 8.5
+      }px`)
+  tab12.style.transform = `rotate(0deg)`
+  setTimeout(() => {
+    tab12.style.transform = `translate(-15px, 0)`
+  }, 370)
+
+  document.body.clientWidth > 1400
+    ? (tab13.style.top = `${
+        document.querySelector('.screen-11-title').offsetTop - 35
+      }px`)
+    : (tab13.style.top = `${
+        document.querySelector('.screen-11-title').offsetTop - 20
+      }px`)
+  setTimeout(() => {
+    tab13.style.transform = `rotate(-8deg) translate(-2px, 0)`
+  }, 300)
+}
+
 if (document.body.clientWidth > 480) {
   new fullpage('#fullpage', {
     licenseKey: 'R8KHJ-2KN68-IZFN6-2PMWI-ZSBML',
     scrollingSpeed: 700,
     fitToSectionDelay: 100,
     lazyLoading: false,
-    afterLoad: function (origin, destination, direction, trigger) {
-      if (origin.index === 9) {
-        document.body.clientWidth > 1400
-          ? (tab11.style.top = `${
-              document.querySelector('.screen-11-title').offsetTop - 20
-            }px`)
-          : (tab11.style.top = `${
-              document.querySelector('.screen-11-title').offsetTop - 10
-            }px`)
-        setTimeout(() => (tab11.style.transform = `rotate(-8deg)`), 100)
-
-        document.body.clientWidth > 1400
-          ? (tab12.style.top = `${
-              document.querySelector('.screen-11-title').offsetTop - 16
-            }px`)
-          : (tab12.style.top = `${
-              document.querySelector('.screen-11-title').offsetTop - 8.5
-            }px`)
-        tab12.style.transform = `rotate(0deg)`
-        setTimeout(() => {
-          tab12.style.transform = `translate(-15px, 0)`
-        }, 370)
-
-        document.body.clientWidth > 1400
-          ? (tab13.style.top = `${
-              document.querySelector('.screen-11-title').offsetTop - 35
-            }px`)
-          : (tab13.style.top = `${
-              document.querySelector('.screen-11-title').offsetTop - 20
-            }px`)
-        setTimeout(() => {
-          tab13.style.transform = `rotate(-8deg) translate(-2px, 0)`
-        }, 300)
-      }
-    },
     onLeave: function (origin, destination, direction, trigger) {
       if (origin.index == 0 && direction == 'down') {
         capsule.className = `main-capsule toDown`
@@ -553,6 +481,30 @@ if (document.body.clientWidth > 480) {
         if (direction === 'up') {
           swiper.slideTo(0, 800, false)
           document.querySelectorAll('video').forEach((video) => video.play())
+        }
+      }
+      if (origin.index === 9) {
+        if (direction === 'down') {
+          tab11.classList.remove('tab-hidden')
+          tab12.classList.remove('tab-hidden')
+          tab13.classList.remove('tab-hidden')
+          fallingTabs()
+        }
+      }
+      if (origin.index === 10) {
+        if (direction === 'up' || direction === 'down') {
+          tab11.classList.add('tab-hidden')
+          tab12.classList.add('tab-hidden')
+          tab13.classList.add('tab-hidden')
+        }
+      }
+      if (origin.index === 11) {
+        if (direction === 'up') {
+          tab11.classList.remove('tab-hidden')
+          tab12.classList.remove('tab-hidden')
+          tab13.classList.remove('tab-hidden')
+
+          fallingTabs()
         }
       }
     },
