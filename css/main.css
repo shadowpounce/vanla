@@ -2353,7 +2353,10 @@ button {
   line-height: 16px;
   color: #000;
 }
-.header .nav__menu ul li.active {
+.header .nav__menu ul li {
+  transition: color 0.5s ease;
+}
+.header .nav__menu ul li:hover {
   color: #bfa291;
 }
 .header .nav .buttons {

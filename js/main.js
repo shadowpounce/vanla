@@ -17,7 +17,7 @@ const vitaminesData = [
 const section3 = document.querySelector('#section-3')
 const section4 = document.querySelector('#section-4')
 const section5 = document.querySelector('#section-5')
-const section10 = document.querySelector('#section-10')
+const links = document.querySelectorAll('.link')
 const video = document.querySelector('.middle-video')
 const capsule = document.querySelector('.main-capsule')
 const mobileCapsule = document.querySelector('.mobile-capsule')
@@ -33,6 +33,10 @@ const mobileMenu = document.querySelector('.mobile-menu')
 const closeMenuIcon = document.querySelector('.close-menu')
 const cartBtn = document.querySelector('.cart-btn')
 let currentScrollY = 0
+
+links.forEach(link => link.addEventListener('click', (e) => {
+  fullpage_api.moveTo(e.target.dataset.page)
+}))
 
 mobileMenuIcon.addEventListener('click', () => setMobileMenu(true))
 
@@ -426,6 +430,7 @@ if (document.body.clientWidth > 480) {
   new fullpage('#fullpage', {
     licenseKey: 'R8KHJ-2KN68-IZFN6-2PMWI-ZSBML',
     scrollingSpeed: 700,
+    fitToSectionDelay: 100,
     fitToSectionDelay: 100,
     lazyLoading: false,
     onLeave: function (origin, destination, direction, trigger) {

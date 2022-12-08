@@ -1216,7 +1216,11 @@
         line-height: 16px;
         color: #000;
 
-        li.active {
+        li {
+          transition: color .5s ease;
+        }
+
+        li:hover {
           color: #bfa291;
         }
       }
