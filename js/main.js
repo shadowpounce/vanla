@@ -433,7 +433,12 @@ function fallingTabs() {
 
 const footerPositionFirst = document.querySelector('h1.flex')
 const transformFooter = document.querySelector('.transform-footer')
-const smileVideo = document.querySelector('.smile-video')
+const smileVideo =
+  document.body.clientWidth > 480
+    ? document.querySelector('.smile-video')
+    : null
+
+console.log(smileVideo)
 
 transformFooter.style.top = `${footerPositionFirst}.offsetTop`
 

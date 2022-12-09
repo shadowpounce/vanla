@@ -6928,6 +6928,26 @@ button {
 }
 @media (max-width: 480px) {
   #section-14 {
+    height: -webkit-fit-content;
+    height: -moz-fit-content;
+    height: fit-content;
+    padding: 100px 0;
+  }
+}
+#section-14 video {
+  display: none;
+}
+@media (max-width: 480px) {
+  #section-14 video {
+    display: block;
+    width: 100%;
+    margin: 0 auto;
+    -o-object-fit: cover;
+       object-fit: cover;
+  }
+}
+@media (max-width: 480px) {
+  #section-14 {
     overflow: hidden;
   }
 }
@@ -6940,6 +6960,11 @@ button {
   align-items: center;
   justify-content: center;
   overflow: hidden;
+}
+@media (max-width: 480px) {
+  #section-15 {
+    overflow: visible;
+  }
 }
 #section-15.second .temp-smile {
   opacity: 1 !important;
@@ -6987,6 +7012,7 @@ button {
   #section-15 .wrapper {
     height: unset !important;
     width: 100% !important;
+    overflow: visible !important;
   }
 }
 #section-15 .wrapper .temp-smile {
@@ -6997,6 +7023,12 @@ button {
   transition: 0.5s ease;
   opacity: 0;
   transition-property: opacity;
+}
+@media (max-width: 480px) {
+  #section-15 .wrapper .temp-smile {
+    max-width: 480px;
+    width: 100%;
+  }
 }
 #section-15 .wrapper #m-1 {
   right: 0;
@@ -7074,6 +7106,11 @@ button {
   align-items: center;
   gap: 175px;
 }
+@media (max-width: 480px) {
+  #section-15 .wrapper .flex {
+    gap: 25px !important;
+  }
+}
 #section-15 .wrapper h1 {
   font-weight: 600;
   font-size: 120px;
@@ -7105,4 +7142,19 @@ button {
 #section-16 {
   background: #fdf2ee;
   height: 100vh;
+}
+@media (max-width: 480px) {
+  #section-16 {
+    height: -webkit-fit-content !important;
+    height: -moz-fit-content !important;
+    height: fit-content !important;
+  }
+}
+#section-16 footer {
+  display: none;
+}
+@media (max-width: 480px) {
+  #section-16 footer {
+    display: block;
+  }
 }/*# sourceMappingURL=main.css.map */
