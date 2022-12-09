@@ -17,6 +17,9 @@ const vitaminesData = [
 const section3 = document.querySelector('#section-3')
 const section4 = document.querySelector('#section-4')
 const section5 = document.querySelector('#section-5')
+const section15 = document.querySelector('#section-15')
+let footerLoading = false
+let videoTransforming = false
 const links = document.querySelectorAll('.link')
 const video = document.querySelector('.middle-video')
 const capsule = document.querySelector('.main-capsule')
@@ -34,9 +37,11 @@ const closeMenuIcon = document.querySelector('.close-menu')
 const cartBtn = document.querySelector('.cart-btn')
 let currentScrollY = 0
 
-links.forEach(link => link.addEventListener('click', (e) => {
-  fullpage_api.moveTo(e.target.dataset.page)
-}))
+links.forEach((link) =>
+  link.addEventListener('click', (e) => {
+    fullpage_api.moveTo(e.target.dataset.page)
+  })
+)
 
 mobileMenuIcon.addEventListener('click', () => setMobileMenu(true))
 
@@ -426,6 +431,12 @@ function fallingTabs() {
   }, 300)
 }
 
+const footerPositionFirst = document.querySelector('h1.flex')
+const transformFooter = document.querySelector('.transform-footer')
+const smileVideo = document.querySelector('.smile-video')
+
+transformFooter.style.top = `${footerPositionFirst}.offsetTop`
+
 if (document.body.clientWidth > 480) {
   new fullpage('#fullpage', {
     licenseKey: 'R8KHJ-2KN68-IZFN6-2PMWI-ZSBML',
@@ -433,6 +444,7 @@ if (document.body.clientWidth > 480) {
     fitToSectionDelay: 100,
     fitToSectionDelay: 100,
     lazyLoading: false,
+
     onLeave: function (origin, destination, direction, trigger) {
       if (origin.index == 0 && direction == 'down') {
         capsule.className = `main-capsule toDown`
@@ -510,6 +522,64 @@ if (document.body.clientWidth > 480) {
           tab13.classList.remove('tab-hidden')
 
           fallingTabs()
+        }
+      }
+      if (origin.index === 12) {
+        if (direction === 'down') {
+          smileVideo.style.opacity = `1`
+        }
+      }
+      if (origin.index === 13) {
+        if (direction === 'up') {
+          smileVideo.style.opacity = `0`
+        }
+        if (direction === 'down') {
+          section15.classList.remove('second')
+          videoTransforming = true
+          smileVideo.src = `./assets/videos/smileTransform.mp4`
+          smileVideo.style.transform = `translate(4px, 50px)`
+          smileVideo.loop = false
+          setTimeout(() => {
+            smileVideo.style.opacity = `0`
+            videoTransforming = false
+          }, 2000)
+          transformFooter.className = `transform-footer in`
+        }
+      }
+      if (origin.index === 14) {
+        if (videoTransforming) {
+          return false
+        }
+        if (direction === 'up') {
+          smileVideo.src = `./assets/videos/smile.mp4`
+          smileVideo.style.opacity = `1`
+          smileVideo.loop = true
+          transformFooter.className = `transform-footer`
+        }
+        if (direction === 'down') {
+          footerLoading = true
+          transformFooter.className = `transform-footer step-2`
+          setTimeout(() => {
+            transformFooter.className = `transform-footer step-3`
+
+            setTimeout(() => {
+              transformFooter.className = `transform-footer step-4`
+
+              setTimeout(() => {
+                transformFooter.className = `transform-footer step-4 step-finish`
+                footerLoading = false
+              }, 1000)
+            }, 1000)
+          }, 1000)
+        }
+      }
+      if (origin.index === 15) {
+        if (footerLoading === true) {
+          return false
+        }
+        if (direction === 'up') {
+          transformFooter.className = `transform-footer out`
+          section15.classList.add('second')
         }
       }
     },

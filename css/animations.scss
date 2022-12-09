@@ -9,6 +9,13 @@
 
 /* section 1 */
 
+@keyframes toStaticCenter {
+  to {
+    transform: translate(-50%, -50%);
+    opacity: 1;
+  }
+}
+
 @keyframes toStatic {
   to {
     transform: none;
@@ -316,6 +323,19 @@
   }
 }
 
+@keyframes footerChild {
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes displayFlex {
+  to {
+    opacity: 1;
+    display: flex;
+  }
+}
+
 @keyframes hide {
   to {
     display: none;
@@ -326,6 +346,13 @@
 @keyframes show {
   to {
     display: block;
+    opacity: 1;
+  }
+}
+
+@keyframes displayInline {
+  to {
+    display: inline;
     opacity: 1;
   }
 }
@@ -573,5 +600,52 @@
   to {
     opacity: 1;
     transform: translate(-50%, -50%) rotate(7deg);
+  }
+}
+
+@keyframes footerIn {
+  0% {
+    opacity: 0;
+    transform: scale(0.3);
+  }
+
+  100% {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+@keyframes footerOut {
+  to {
+    transform: scale(0.3) translate(0, 500px);
+    opacity: 0;
+    width: 0px;
+  }
+}
+
+@keyframes footerStep2 {
+  to {
+    bottom: 35%;
+    width: 175px;
+    height: 175px;
+    border-radius: 50%;
+  }
+}
+
+@keyframes footerStep3 {
+  to {
+    width: 340px;
+    height: 340px;
+    border-radius: 100px;
+  }
+}
+
+@keyframes footerStep4 {
+  to {
+    bottom: 0;
+    width: 100%;
+    min-height: 360px;
+    height: fit-content;
+    border-radius: 100px 100px 0 0;
   }
 }

@@ -9,6 +9,9 @@
 body {
   font-family: 'TT Firs Neue';
   overflow: hidden;
+  display: flex;
+  justify-content: center;
+  align-items: stretch;
 
   @media (max-width: 480px) {
     overflow-y: scroll;
@@ -43,6 +46,10 @@ button {
   border: none;
   background: transparent;
   cursor: pointer;
+}
+
+#fullpage {
+  width: 100%;
 }
 
 section {
