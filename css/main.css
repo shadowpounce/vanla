@@ -4287,6 +4287,13 @@ button {
   align-items: center;
 }
 @media (max-width: 480px) {
+  #section-4 {
+    height: -webkit-fit-content;
+    height: -moz-fit-content;
+    height: fit-content;
+  }
+}
+@media (max-width: 480px) {
   #section-4.active h1.left {
     transform: none;
   }
@@ -5429,6 +5436,9 @@ button {
 @media (max-width: 480px) {
   #section-7 {
     overflow-x: hidden;
+    height: -webkit-fit-content;
+    height: -moz-fit-content;
+    height: fit-content;
   }
 }
 #section-7 > div {
@@ -5855,6 +5865,13 @@ button {
   color: #000000;
   position: relative;
   overflow: hidden !important;
+}
+@media (max-width: 480px) {
+  #section-11 {
+    height: -webkit-fit-content;
+    height: -moz-fit-content;
+    height: fit-content;
+  }
 }
 #section-11 > div {
   height: 100%;
@@ -6505,6 +6522,9 @@ button {
 @media (max-width: 480px) {
   #section-12 {
     overflow-x: hidden;
+    height: -webkit-fit-content;
+    height: -moz-fit-content;
+    height: fit-content;
   }
 }
 #section-12.fp-completely .review {

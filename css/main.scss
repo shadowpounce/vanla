@@ -3001,6 +3001,10 @@
   display: flex;
   align-items: center;
 
+  @media (max-width: 480px) {
+    height: fit-content;
+  }
+
   &.active {
     h1.left {
       @media (max-width: 480px) {
@@ -4128,6 +4132,7 @@
 
   @media (max-width: 480px) {
     overflow-x: hidden;
+    height: fit-content;
   }
 
   > div {
@@ -4528,6 +4533,10 @@
   color: #000000;
   position: relative;
   overflow: hidden !important;
+
+  @media (max-width: 480px) {
+    height: fit-content;
+  }
 
   > div {
     height: 100%;
@@ -5174,6 +5183,7 @@
 
   @media (max-width: 480px) {
     overflow-x: hidden;
+    height: fit-content;
   }
 
   &.fp-completely {
