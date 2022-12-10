@@ -554,7 +554,6 @@ if (document.body.clientWidth > 480) {
       if (origin.index === 13) {
         if (direction === 'up') {
           smileVideo.style.opacity = `0`
-          smileVideo.style.transform = `none`
         }
         if (direction === 'down') {
           section15.classList.remove('second')
@@ -577,7 +576,6 @@ if (document.body.clientWidth > 480) {
           smileVideo.classList.remove('toSmall')
           smileVideo.src = `./assets/videos/smile.mp4`
           smileVideo.style.opacity = `1`
-          smileVideo.style.transform = `none`
           smileVideo.loop = true
           transformFooter.className = `transform-footer`
         }
