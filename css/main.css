@@ -1,4 +1,4 @@
-@import url("https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;700&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;700;800&display=swap");
 *,
 *::before,
 *::after {
@@ -2511,9 +2511,10 @@ button {
 }
 
 .section__title {
-  font-weight: 700;
+  font-weight: 800;
   font-size: 58px;
   line-height: 100%;
+  font-family: "Plus Jakarta Sans";
 }
 @media (max-width: 1750px) {
   .section__title {
@@ -2579,6 +2580,7 @@ button {
   display: flex;
   align-items: center;
   justify-content: space-between;
+  font-family: "Plus Jakarta Sans";
 }
 .header .nav .logo {
   opacity: 0;
@@ -4019,6 +4021,7 @@ button {
   transform: translate(0, -150px);
   opacity: 0;
   z-index: 3;
+  font-family: "Plus Jakarta Sans";
 }
 @media (max-width: 1400px) {
   #section-2 .container .wrapper ul li {
@@ -4070,7 +4073,7 @@ button {
   pointer-events: none;
 }
 #section-2 .container .wrapper ul li .head h4 {
-  font-weight: 500;
+  font-weight: 700;
   font-size: 18.7316px;
   line-height: 24px;
   color: #000000;
@@ -4100,8 +4103,8 @@ button {
 }
 #section-2 .container .wrapper ul li .body p {
   font-weight: 400;
-  font-size: 11.6671px;
-  line-height: 15px;
+  font-size: 12px;
+  line-height: 14px;
   color: #ababab;
 }
 @media (max-width: 1400px) {
@@ -4532,6 +4535,7 @@ button {
   position: relative;
 }
 #section-5 .carousel .video span {
+  white-space: nowrap;
   -webkit-user-select: none;
      -moz-user-select: none;
       -ms-user-select: none;
@@ -4593,8 +4597,10 @@ button {
   }
 }
 #section-8 .section__title {
-  width: 35%;
+  width: 40%;
   align-self: start;
+  font-size: 70px;
+  line-height: 70px;
 }
 @media (max-width: 480px) {
   #section-8 .section__title {
@@ -4639,16 +4645,13 @@ button {
   display: flex;
   flex-direction: column;
   align-items: center;
+  justify-content: start;
   gap: 90px;
   overflow: hidden;
 }
-@media (min-width: 1920px) {
+@media (min-width: 1750px) {
   #section-8 .container {
-    justify-content: center;
-  }
-}
-@media (max-width: 1750px) {
-  #section-8 .container {
+    gap: 50px;
     justify-content: center;
   }
 }
@@ -4688,6 +4691,11 @@ button {
   position: relative;
   transform: translate(0, 50px);
   opacity: 0;
+}
+@media (min-width: 1750px) {
+  #section-8 .container .row .card {
+    min-height: 360px;
+  }
 }
 @media (max-width: 1400px) {
   #section-8 .container .row .card {
@@ -4899,8 +4907,8 @@ button {
   }
 }
 #section-9 .container .wrapper h1 {
-  font-style: normal;
-  font-weight: 700;
+  font-family: "Plus Jakarta Sans";
+  font-weight: 800;
   font-size: 95px;
   line-height: 105%;
   max-width: 620px;
@@ -5063,7 +5071,8 @@ button {
   background-color: transparent;
 }
 #section-10 h2 {
-  font-weight: 700;
+  font-family: "Plus Jakarta Sans";
+  font-weight: 800;
   font-size: 80px;
   line-height: 100%;
   color: #fffdf6;
@@ -5351,7 +5360,7 @@ button {
   background-color: #fff;
   border-radius: 130px;
   font-style: normal;
-  font-weight: 700;
+  font-weight: 800;
   font-size: 16px;
   line-height: 20px;
   text-align: center;
@@ -6226,7 +6235,8 @@ button {
   }
 }
 #section-11 .container h1 {
-  font-weight: 700;
+  font-family: "Plus Jakarta Sans";
+  font-weight: 800;
   font-size: 84px;
   line-height: 120%;
   text-align: center;
@@ -6375,6 +6385,7 @@ button {
 }
 #section-6 .container .wrapper .about-us {
   width: 40%;
+  font-family: "Plus Jakarta Sans";
 }
 @media (max-width: 480px) {
   #section-6 .container .wrapper .about-us {
@@ -6382,6 +6393,7 @@ button {
   }
 }
 #section-6 .container .wrapper .about-us h4 {
+  font-weight: 800;
   font-size: 70px;
   line-height: 65px;
   margin-bottom: 45px;
@@ -6774,7 +6786,8 @@ button {
   }
 }
 #section-13 h2 {
-  font-weight: 700;
+  font-family: "Plus Jakarta Sans";
+  font-weight: 800;
   font-size: 100px;
   line-height: 120%;
   opacity: 0;
@@ -7233,9 +7246,10 @@ button {
   }
 }
 #section-15 .wrapper h1 {
-  font-weight: 600;
+  font-family: "Plus Jakarta Sans";
+  font-weight: 800;
   font-size: 120px;
-  line-height: 100%;
+  line-height: 110%;
   text-align: center;
   text-transform: uppercase;
   color: #000000;
