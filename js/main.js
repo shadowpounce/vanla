@@ -37,9 +37,26 @@ const closeMenuIcon = document.querySelector('.close-menu')
 const cartBtn = document.querySelector('.cart-btn')
 let currentScrollY = 0
 
+setTimeout(() => {
+  smileVideo.style.display = `block`
+  transformFooter.style.display = `inline-flex`
+}, 1000)
+
 links.forEach((link) =>
   link.addEventListener('click', (e) => {
-    fullpage_api.moveTo(e.target.dataset.page)
+    const page = Number(e.target.dataset.page)
+    fullpage_api.moveTo(page)
+
+    if (page !== 1) {
+      capsule.className = `main-capsule out`
+    } else if (page === 1) {
+      setTimeout(() => {
+        capsule.className = `main-capsule init`
+        capsuleHead.className = `head`
+        capsulePieces.className = `pieces`
+      }),
+        1000
+    }
   })
 )
 
@@ -537,12 +554,13 @@ if (document.body.clientWidth > 480) {
       if (origin.index === 13) {
         if (direction === 'up') {
           smileVideo.style.opacity = `0`
+          smileVideo.style.transform = `none`
         }
         if (direction === 'down') {
           section15.classList.remove('second')
           videoTransforming = true
           smileVideo.src = `./assets/videos/smileTransform.mp4`
-          smileVideo.style.transform = `translate(4px, 50px)`
+          smileVideo.classList.add('toSmall')
           smileVideo.loop = false
           setTimeout(() => {
             smileVideo.style.opacity = `0`
@@ -556,8 +574,10 @@ if (document.body.clientWidth > 480) {
           return false
         }
         if (direction === 'up') {
+          smileVideo.classList.remove('toSmall')
           smileVideo.src = `./assets/videos/smile.mp4`
           smileVideo.style.opacity = `1`
+          smileVideo.style.transform = `none`
           smileVideo.loop = true
           transformFooter.className = `transform-footer`
         }
